@@ -17,6 +17,11 @@ function Navbar() {
             Profile
           </li>
         </Link>
+        <Link to="/learn">
+          <li className="navbar-links-item">
+            Learn
+          </li>
+        </Link>
       </ul>
     </div>
   );
