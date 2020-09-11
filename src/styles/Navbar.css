@@ -1,0 +1,28 @@
+.navbar {
+    background-color: rgba(255, 205, 152, 0.356);
+    margin: 0;
+    padding: 0.2em;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-links {
+    margin-right: 3em;
+    margin-left: auto;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar-links-item {
+    margin: 0 2em;
+    font-size: 24px;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#logo {
+    margin: 5px;
+}
