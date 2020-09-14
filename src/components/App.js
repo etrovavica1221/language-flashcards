@@ -4,10 +4,9 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Profile from './Profile';
 import Learn from './Learn';
-import userLogin from './Userlogin';
-import userRegister from './UserRegister';
+import UserLogin from './UserLogin';
+import UserRegister from './UserRegister';
 import '../styles/App.css';
-
 
 function App() {
   return (
@@ -17,8 +16,8 @@ function App() {
         <Switch>
           <Route exact path="/profile" component={Profile} />
           <Route path="/learn" component={Learn} />
-          <Route path="/login" component={userLogin} />
-          <Route path="/register" component={userRegister} />
+          <Route path="/login" component={UserLogin} />
+          <Route path="/register" component={UserRegister} />
           <Route path="/" component={Home} />
 
         </Switch>
