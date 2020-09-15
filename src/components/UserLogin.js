@@ -1,13 +1,14 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../styles/LoginRegister.css';
 import axios from "axios";
 
-const UserLogin = () => {
+const UserLogin = ({userState, setUserState}) => {
   const [Value, setCurrValue] = useState();
-
+  const history = useHistory();
   const handleChange = (e) => {
     setCurrValue({
       ...Value,
@@ -23,6 +24,13 @@ const UserLogin = () => {
       })
       .then((response) => {
         console.log(response);
+        setUserState({
+          userName: response.data.forename,
+          translateFrom: response.data.translateFrom,
+          translateTo: response.data.translateTo,
+          loggedIn: true,
+        });
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);

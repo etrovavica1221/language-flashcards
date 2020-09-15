@@ -2,18 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
-const initialState = {
-  user: {
-    loggedIn: false,
-    userName: '',
-    accountNumber: '',
-    translateFrom: '',
-    translateTo: '',
-  },
-};
-
-const Home = () => {
-  const isLoggedIn = initialState.user.loggedIn;
+const Home = ({userState, setUserState}) => {
+  const isLoggedIn = userState.loggedIn;
   let message;
   let button;
   if (isLoggedIn) {
@@ -23,6 +13,7 @@ const Home = () => {
     message = <h1>Welcome to translator app, please log in</h1>;
     button = <Link className="homeButton" to="/login"><button type="button">Log in</button></Link>;
   }
+
   return (
     <div className="HomePage">
       {message}
