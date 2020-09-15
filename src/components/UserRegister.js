@@ -2,13 +2,13 @@
 /* eslint-disable quotes */
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../styles/LoginRegister.css';
 import axios from "axios";
 
-const UserRegister = () => {
+const UserRegister = ({userState, setUserState}) => {
   const [Value, setCurrValue] = useState();
-
+  const history = useHistory();
   const handleChange = (e) => {
     setCurrValue({
       ...Value,
@@ -31,16 +31,22 @@ const UserRegister = () => {
         })
         .then((response) => {
           console.log(response);
+          setUserState({
+            userName: response.data.forename,
+            translateFrom: response.data.translateFrom,
+            translateTo: response.data.translateTo,
+            loggedIn: true,
+          });
+          history.push("/");
         })
         .catch((err) => {
           console.log(err);
         });
-
-      //update the state to show user is logged in and hold their details
     }
   };
 
   console.log('VALUE', Value);
+
   return (
     <div className="UserRegister">
       <h1>Register</h1>
