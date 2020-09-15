@@ -1,0 +1,14 @@
+.homeButton {
+    margin: 5px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.HomePage {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    text-align: center;
+}
