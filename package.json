@@ -8,11 +8,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
-<<<<<<< HEAD
     "eslint-plugin-babel": "^5.3.1",
-=======
-    "cors": "^2.8.5",
->>>>>>> 598c91051b71944a6a25c0166d493631a5b4b930
     "react": "^16.13.1",
     "react-avatar-editor": "11.0.7",
     "react-dom": "^16.13.1",
