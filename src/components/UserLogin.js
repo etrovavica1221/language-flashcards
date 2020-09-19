@@ -41,11 +41,11 @@ const UserLogin = ({userState, setUserState}) => {
 
   return (
     <div className="UserLogin">
-      <h1>Log In</h1>
+      <h1 className="titles">Log In</h1>
       <form action="submit" onSubmit={handleSubmit}>
         <input type="text" placeholder="Email Address" required name="email" onChange={handleChange} />
         <input type="password" placeholder="Password" required name="password" onChange={handleChange} />
-        <button type="submit">Login</button>
+        <button className="base-button" type="submit">Log in</button>
         <Link className="hyperlink" to="/register">Not a member? Register here.</Link>
       </form>
     </div>

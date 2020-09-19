@@ -1,28 +1,21 @@
 .UserLogin, .UserRegister{
     text-align: center;
+    margin: 4em auto;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
 Input, select{
-    margin: 5px;
+    margin: 0.5em;
     height: 30px;
     border-radius: 5px;
-    background-color: white;
-}
-
-button {
-    margin: 5px;
-    height: 25px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .hyperlink {
-    color: blue;
+    color: rgb(211, 141, 12);
 }

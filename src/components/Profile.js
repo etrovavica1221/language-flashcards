@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from "axios";
 import AvatarEditor from 'react-avatar-editor';
+import UserLogin from './UserLogin';
 import '../styles/Profile.css';
 import examplePic from '../styles/cat-reading-newspaper-445x299.jpg';
 
 class Profile extends React.Component {
   state = {
     //profile
-    forename: "john",
+    forename: "name",
     surname: "smith",
     translateFrom:"english",
     translateTo: "russian",
@@ -114,7 +115,7 @@ class Profile extends React.Component {
                 <br />
                 <input type="range" onChange={this.handleScale} min='1.2' max="2" step="0.05"/>
                 <br />
-                <input type="button" onClick={this.handleSave} value="OK" />
+                <input type="button" className="base-button" onClick={this.handleSave} value="OK" />
                 <br />
               </div>
             ):(
@@ -145,6 +146,7 @@ class Profile extends React.Component {
               {this.state.translateTo}
             </h1>
             <button
+              className="base-button"
               onClick={() => {
                 this.setState({edit: true});
               }}
@@ -179,6 +181,8 @@ class Profile extends React.Component {
               <option value="CH">Chinese</option>
             </select>
             <button
+              className="base-button"
+              id="cancel-button"
               onClick={() => {
                 this.setState((prevState) => ({edit: false, ...prevState.profile }));
               }}

@@ -49,7 +49,7 @@ const UserRegister = ({userState, setUserState}) => {
 
   return (
     <div className="UserRegister">
-      <h1>Register</h1>
+      <h1 className="titles">Register</h1>
       <form action="submit" onSubmit={handleSubmit}>
         <input type="text" placeholder="First Name" required name="forename" onChange={handleChange} />
         <input type="text" placeholder="Surname" required name="surname" onChange={handleChange} />
@@ -68,7 +68,7 @@ const UserRegister = ({userState, setUserState}) => {
           <option value="RU">Russian</option>
           <option value="CH">Chinese</option>
         </select>
-        <button type="submit">Register</button>
+        <button className="base-button" type="submit">Register</button>
         <Link className="hyperlink" to="/login">Already a member? log in here.</Link>
       </form>
     </div>

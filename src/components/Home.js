@@ -22,19 +22,21 @@ const Home = ({userState, setUserState}) => {
   let logout;
   if (isLoggedIn) {
     message = <h1>Welcome back!!</h1>;
-    button = <Link className="homeButton" to="/learn"><button type="button">get started!</button></Link>;
+    button = <Link className="base-button" to="/learn"><button className="home-button" type="button">get started!</button></Link>;
     logout = <Link className="logOut" to="/"><button type="button" onClick={handleLogout}>Log Out</button></Link>;
   } else {
-    message = <h1>Welcome to translator app, please log in</h1>;
-    button = <Link className="homeButton" to="/login"><button type="button">Log in</button></Link>;
+    message = <h1 class='welcome-msg'>Welcome to translator app!<div class='welcome-msg'>Please log in</div></h1>;
+    button = <Link to="/login"><button className="base-button" type="button">Log in</button></Link>;
     logout = "";
   }
 
   return (
     <div className="HomePage">
-      {message}
-      {button}
-      {logout}
+      <div id="landing">
+        {message}
+        {button}
+        {logout}
+      </div>
     </div>
   );
 };
