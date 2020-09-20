@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(20, 193, 216);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+  }
+  
+  .card-container {
+    background-color: white;
+    color: rgb(95, 95, 95);
+    height: 500px;
+    width: 380px;
+    border-radius: 40px;
+    box-shadow: 6px 6px 10px rgb(18, 30, 32);
+  }
+  
+  .card-text-original {
+    position: relative;
+    top: 20%;
+  }
+  
+  .card-text-translation {
+    font-style: italic;
+    position: relative;
+    top: 40%;
+  }

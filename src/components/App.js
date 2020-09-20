@@ -7,6 +7,7 @@ import Learn from './Learn';
 import UserLogin from './UserLogin';
 import UserRegister from './UserRegister';
 import '../styles/App.css';
+import FlashcardList from './Flashcardlist';
 
 const initialState = {
   user: {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
           <Route exact path="/" render={() => <Home userState={user} setUserState={setUser} />} />
+          <Route exact path="/flashcard" render={() => <FlashcardList flashcards={flashcards} />} />
         </Switch>
       </div>
     </BrowserRouter>
