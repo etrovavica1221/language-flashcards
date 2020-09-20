@@ -22,6 +22,11 @@ function Navbar() {
             Learn
           </li>
         </Link>
+        <Link to="/flashcards">
+          <li className="navbar-links-item">
+            My Flashcards
+          </li>
+        </Link>
       </ul>
     </div>
   );
