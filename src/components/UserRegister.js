@@ -22,7 +22,7 @@ const UserRegister = ({ userState, setUserState }) => {
       console.log('passwords match');
 
       axios
-        .post("http://localhost:5000", {
+        .post("https://translation-app-mcrcodes.herokuapp.com/", {
           forename: Value.forename,
           surname: Value.surname,
           translateFrom: Value.translateFrom,

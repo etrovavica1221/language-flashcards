@@ -13,6 +13,7 @@ const translateState = {
 const Home = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState(translateState.value);
   const isLoggedIn = userState.loggedIn;
+  
   //create variables
   let message;
   let button;
