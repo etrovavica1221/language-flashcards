@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 /*import FlashcardList from './FlashcardList'*/
-import '@vitalets/google-translate-api';
-import './Translator.css';
+/*import '@vitalets/google-translate-api';*/
+import '../styles/Translator.css';
 /*import axios from 'axios';*/
 
 const Translator = ({ flashcard }) => {
@@ -32,7 +32,7 @@ useEffect(() => {
         <div className="main">
        
 		  <input className="input-top" type="text" name="Search" placeholder="Translate..."></input>
-		  <button onClick={handleClick}>Translate</button>
+		  <button>Translate</button>
 	    
           <input className="input-bottom" type="text" name="Search" placeholder="....."></input>
           <button>Save to Flashcard</button>

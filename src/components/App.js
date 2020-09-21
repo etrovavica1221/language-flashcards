@@ -20,6 +20,8 @@ const initialState = {
 
 function App() {
   const [user, setUser] = useState(initialState.user);
+  const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -36,5 +38,13 @@ function App() {
     </BrowserRouter>
   );
 }
+
+const SAMPLE_FLASHCARDS = [
+  {
+    id: 1,
+    original: "this is a sentence",
+    translation: "this is another sentence"
+  }
+]
 
 export default App;
