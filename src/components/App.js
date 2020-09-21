@@ -32,7 +32,7 @@ function App() {
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
           <Route exact path="/" render={() => <Home userState={user} setUserState={setUser} />} />
-          <Route exact path="/flashcard" render={() => <FlashcardList flashcards={flashcards} />} />
+          <Route exact path="/" render={() => <FlashcardList flashcards={flashcards} />} />
         </Switch>
       </div>
     </BrowserRouter>
