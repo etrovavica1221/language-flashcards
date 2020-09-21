@@ -12,3 +12,8 @@
     margin: 10px;
     text-align: center;
 }
+
+form {
+    width: 70%;
+    margin: auto;
+}

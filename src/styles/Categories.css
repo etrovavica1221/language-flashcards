@@ -1,0 +1,21 @@
+.catList {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    text-decoration: none; 
+    color: black; 
+    margin: 5px; 
+}
+
+.Categories{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.catList:hover {
+    color: blue;
+  }

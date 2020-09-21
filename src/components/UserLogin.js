@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 /* eslint-disable no-console */
@@ -6,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 import '../styles/LoginRegister.css';
 import axios from "axios";
 
-const UserLogin = ({userState, setUserState}) => {
+const UserLogin = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState();
   const history = useHistory();
   const handleChange = (e) => {
