@@ -12,4 +12,4 @@ const FlashcardList = ({ flashcards }) => {
     )
 };
 
-export default FlashcardList;
+// export default FlashcardList;

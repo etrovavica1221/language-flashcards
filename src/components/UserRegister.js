@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 /* eslint-disable no-console */
@@ -6,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 import '../styles/LoginRegister.css';
 import axios from "axios";
 
-const UserRegister = ({userState, setUserState}) => {
+const UserRegister = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState();
   const history = useHistory();
   const handleChange = (e) => {
@@ -21,7 +22,7 @@ const UserRegister = ({userState, setUserState}) => {
       console.log('passwords match');
 
       axios
-        .post("http://localhost:5000", {
+        .post("https://translation-app-mcrcodes.herokuapp.com/", {
           forename: Value.forename,
           surname: Value.surname,
           translateFrom: Value.translateFrom,

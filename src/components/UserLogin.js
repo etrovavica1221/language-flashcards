@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 /* eslint-disable no-console */
@@ -6,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 import '../styles/LoginRegister.css';
 import axios from "axios";
 
-const UserLogin = ({userState, setUserState}) => {
+const UserLogin = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState();
   const history = useHistory();
   const handleChange = (e) => {
@@ -18,7 +19,7 @@ const UserLogin = ({userState, setUserState}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/login", {
+      .post("https://translation-app-mcrcodes.herokuapp.com/login", {
         email: Value.email,
         password: Value.password,
       })
@@ -41,7 +42,7 @@ const UserLogin = ({userState, setUserState}) => {
 
   return (
     <div className="UserLogin">
-      <h1 className="titles">Log In</h1>
+      <h1 id="login-button">Log In</h1>
       <form action="submit" onSubmit={handleSubmit}>
         <input type="text" placeholder="Email Address" required name="email" onChange={handleChange} />
         <input type="password" placeholder="Password" required name="password" onChange={handleChange} />
