@@ -53,8 +53,10 @@ const Home = ({ userState, setUserState }) => {
     <div id="HomePage">
       <div id="landing">
         {message}
-        {button}
-        {logout}
+        <div id="home-buttons-container"> 
+          {button}
+          {logout}
+        </div>
       </div>
       <div id="translation-form-container">
         <h1 className="titles">Translate your text and make your own flashcards</h1>
