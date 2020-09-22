@@ -1,5 +1,5 @@
 import React from 'react';
-/*import Flashcard from './Flashcard';*/
+import Flashcard from './Flashcard';
 import Translator from './Translator';
 
 const FlashcardList = ({ flashcards }) => {
@@ -12,4 +12,4 @@ const FlashcardList = ({ flashcards }) => {
     )
 };
 
-// export default FlashcardList;
+export default FlashcardList;
