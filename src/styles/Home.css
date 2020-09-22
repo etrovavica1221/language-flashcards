@@ -1,19 +1,27 @@
-.homeButton {
-    margin: 5px;
-    height: 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
-
 .HomePage {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 3em;
     text-align: center;
+    min-height: 100vh;
+    font-family: 'Ranchers', cursive;
+    color: rgb(211, 141, 12);
+    text-shadow: 2px 2px #000000;
 }
 
-form {
-    width: 70%;
-    margin: auto;
+.titles {
+    font-family: 'Ranchers', cursive;
+    color: rgb(211, 141, 12);
+    text-shadow: 2px 2px #000000;
 }
+
+#landing {
+    background: url('./landing.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    height: 80vh;
+}
+
+

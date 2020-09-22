@@ -1,6 +1,39 @@
+/*  main-background: url('./main-background.png');
+    secondary-background: rgba(222, 233, 238, 0.87);
+
+    MAIN-TEXT
+    font-color-main: rgb(211, 141, 12);
+    font-family-main: 'Ranchers', cursive;
+    text-shadow-for-main: 2px 2px #000000;
+
+    PLAIN TEXT
+    font-family: 'Balsamiq Sans', cursive; 
+*/
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Ranchers&display=swap');
+
 html,body {
     margin: 0;
     padding: 0;
-    background-color: #fdf2cde0;
+    background-image: url('./main-background.png');
     max-width: 100%;
+    font-family: 'Balsamiq Sans', cursive; 
 }
+
+.base-button {
+    width: 5em;
+    height: 2em;
+    margin: 1em auto;
+    border: 2px solid black;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 800;
+    background-color: white;
+    cursor: pointer;
+}
+
+#cancel-button {
+    background-color: rgba(238, 32, 32, 0.712);
+    margin-top: 2em;
+}
+

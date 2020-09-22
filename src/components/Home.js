@@ -43,8 +43,8 @@ const Home = ({ userState, setUserState }) => {
     logout = <Link className="logOut" to="/"><button type="button" onClick={handleLogout}>Log Out</button></Link>;
     saveButton = <Link className="logOut" to="/"><button type="button" onClick={handleLogout}>Save to my Flashcards</button></Link>;
   } else {
-    message = <h1>Welcome to translator app, please log in</h1>;
-    button = <Link className="homeButton" to="/login"><button type="button">Log in</button></Link>;
+    message = <h1 class='welcome-msg'>Welcome to translator app!<div class='welcome-msg'>Please log in</div></h1>;
+    button = <Link to="/login"><button className="base-button" type="button">Log in</button></Link>;
     logout = "";
     saveButton = "";
   }

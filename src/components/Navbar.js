@@ -5,7 +5,7 @@ import '../styles/Navbar.css';
 function Navbar() {
   return (
     <div className="navbar">
-      <img id="logo" src="https://picsum.photos/200/300" alt="logo" width="50" height="50" />
+      <img id="logo" src={require("../styles/logo.png")} alt="logo" width="200" height="45" />
       <ul className="navbar-links">
         <Link to="/">
           <li className="navbar-links-item">
@@ -20,6 +20,11 @@ function Navbar() {
         <Link to="/learn">
           <li className="navbar-links-item">
             Learn
+          </li>
+        </Link>
+        <Link to="/flashcards">
+          <li className="navbar-links-item">
+            My Flashcards
           </li>
         </Link>
       </ul>

@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgba(255, 205, 152, 0.356);
+    background-color: rgba(222, 233, 238, 0.87);
     margin: 0;
     padding: 0.2em;
     display: flex;
@@ -16,8 +16,11 @@
 }
 
 .navbar-links-item {
+    font-family: 'Ranchers', cursive;
+    color: rgb(211, 141, 12);
+    text-shadow: 1px 1px #000000;
     margin: 0 2em;
-    font-size: 24px;
+    font-size: 26px;
     display: inline-block;
     font-weight: bold;
     text-decoration: none;
