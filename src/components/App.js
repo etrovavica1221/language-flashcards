@@ -20,7 +20,12 @@ const initialState = {
 
 function App() {
   const [user, setUser] = useState(initialState.user);
+<<<<<<< HEAD
+  const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+  
+=======
 
+>>>>>>> master
   return (
     <BrowserRouter>
       <div className="App">
@@ -31,11 +36,23 @@ function App() {
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
           <Route exact path="/" render={() => <Home userState={user} setUserState={setUser} />} />
+<<<<<<< HEAD
+          <Route exact path="/" render={() => <FlashcardList flashcards={flashcards} />} />
+=======
           {/* <Route exact path="/flashcard" render={() => <FlashcardList flashcards={flashcards} />} /> */}
+>>>>>>> master
         </Switch>
       </div>
     </BrowserRouter>
   );
 }
+
+const SAMPLE_FLASHCARDS = [
+  {
+    id: 1,
+    original: "this is a sentence",
+    translation: "this is another sentence"
+  }
+]
 
 export default App;
