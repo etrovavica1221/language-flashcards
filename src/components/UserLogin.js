@@ -42,7 +42,7 @@ const UserLogin = ({ userState, setUserState }) => {
 
   return (
     <div className="UserLogin">
-      <h1 id="login-button">Log In</h1>
+      <h1 className="titles">Log In</h1>
       <form action="submit" onSubmit={handleSubmit}>
         <input type="text" placeholder="Email Address" required name="email" onChange={handleChange} />
         <input type="password" placeholder="Password" required name="password" onChange={handleChange} />
