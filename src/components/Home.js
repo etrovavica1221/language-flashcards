@@ -39,9 +39,9 @@ const Home = ({ userState, setUserState }) => {
   //home page definition
   if (isLoggedIn) {
     message = <h1 className="titles">Welcome back!!</h1>;
-    button = <Link className="base-button" to="/learn"><button type="button">View My Flashcards!</button></Link>;
-    logout = <Link className="logOut" to="/"><button type="button" onClick={handleLogout}>Log Out</button></Link>;
-    saveButton = <Link className="logOut" to="/"><button className="base-button" type="button" onClick={handleLogout}>Save to my Flashcards</button></Link>;
+    button = <Link to="/learn"><button className="base-button" id="large-home-button" type="button">View My Flashcards!</button></Link>;
+    logout = <Link to="/"><button className="base-button" id="large-home-button" type="button" onClick={handleLogout}>Log Out</button></Link>;
+    saveButton = <Link to="/"><button className="base-button" id="large-home-button" type="button" onClick={handleLogout}>Save to my Flashcards</button></Link>;
   } else {
     message = <h1 className='titles'>Welcome to translator app!<div className='titles'>Please log in</div></h1>;
     button = <Link to="/login"><button className="base-button" type="button">Log in</button></Link>;
