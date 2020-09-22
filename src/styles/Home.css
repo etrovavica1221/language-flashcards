@@ -1,4 +1,4 @@
-.HomePage {
+#HomePage {
     display: flex;
     flex-direction: column;
     margin: 3em;
@@ -13,6 +13,8 @@
     font-family: 'Ranchers', cursive;
     color: rgb(211, 141, 12);
     text-shadow: 2px 2px #000000;
+    margin: auto;
+    margin-top: 1em;
 }
 
 #landing {
@@ -24,4 +26,31 @@
     height: 80vh;
 }
 
+#translation-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3em 1.5em;
+}
+
+#translation-form {
+    display: flex;
+    flex-direction: row;
+    margin: 2em auto;
+}
+
+#translation-form textarea {
+    width: 60em;
+    height: 40em;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+#translation-form textarea[type=text]:focus {
+    border: 3px solid #555;
+}
 
