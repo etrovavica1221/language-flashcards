@@ -58,14 +58,6 @@ const Home = ({ userState, setUserState }) => {
           {logout}
         </div>
       </div>
-      <div id="translation-form-container">
-        <h1 className="titles">Translate your text and make your own flashcards</h1>
-          <form id="translation-form" action="submit">
-            <textarea type="text" placeholder="Enter text to translate..." required name="textInput" onChange={handleChange} />
-            <textarea value={Value.value} type="text" placeholder="Translation..." required name="textOutput" />
-          </form>
-        {saveButton}
-      </div>
     </div>
   );
 };
