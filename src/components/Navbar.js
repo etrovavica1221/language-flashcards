@@ -18,7 +18,9 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <img id="logo" src={require("../styles/logo.png")} alt="logo" />   
+      <Link id="logo-container" to="/">
+        <img id="logo" src={require("../styles/logo.png")} alt="logo" />   
+      </Link>
       {isOpen ? (
         <div className="navbar-openWrapper">
           <ul id="navbar-links">

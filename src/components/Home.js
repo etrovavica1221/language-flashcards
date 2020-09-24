@@ -4,6 +4,8 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Home.css';
 
 const translateState = {
@@ -58,6 +60,10 @@ const Home = ({ userState, setUserState }) => {
           {logout}
         </div>
       </div>
+      <footer>
+        <FontAwesomeIcon icon={ faCopyright } />
+        <p id="copyright">Copyright</p>
+      </footer>
     </div>
   );
 };

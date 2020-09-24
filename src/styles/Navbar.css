@@ -30,8 +30,12 @@
     transition: color 0.4s;
 }
 
-#logo {
+#logo-container {
     margin: 5px auto auto 5px;
+
+}
+
+#logo {  
     width: 200px;
     height: 45px;
 }
@@ -44,7 +48,13 @@
 #bars-icon {
     font-size: 1.6em;
     color: rgb(211, 141, 12);
+    text-shadow: 1px 1px #000000;
     cursor: pointer;
+}
+
+#bars-icon:hover {
+    color: rgb(253, 202, 106);
+    transition: color 0.4s;
 }
 
 @media only screen and (max-width: 800px) {
