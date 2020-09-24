@@ -1,32 +1,72 @@
 import React, { useState, useEffect } from 'react';
+import cookie from "react-cookies";
+import { googleTranslate } from "./utils/googleTranslate";
 /*import FlashcardList from './FlashcardList'*/
-/*import '@vitalets/google-translate-api';*/
 import '../styles/Translator.css';
-/*import axios from 'axios';*/
 
 const Translator = ({ flashcard }) => {
+
+  const [languageCodes, setlanguageCodes] = useState([]);
+  const [language, setLanguage] = useState(cookie.load("language") ? cookie.load("language") : "en",)
+  const [question, setQuestion] = useState(cookie.load("question")
+  ? cookie.load("question")
+  : "What language do you prefer to read with?");
+
+  useEffect(() => {
+    googleTranslate.getSupportedLanguages("en", function(err, languageCodes) {
+      getLanguageCodes(languageCodes); // use a callback function to setState
+    });
+
+    const getLanguageCodes = languageCodes => {
+      setlanguageCodes(languageCodes);
+    }
+  });
+
+  const changeHandler = language => {
+    let cookieLanguage = cookie.load("language");
+    let transQuestion = "";
+
+    const translating = transQuestion => {
+      if (question !== transQuestion) {
+        setQuestion(transQuestion);
+        cookie.save("question", transQuestion, { path: "/" });
+      }
+    };
+
+    // translate the question when selecting a different language
+    if (language !== cookieLanguage) {
+      googleTranslate.translate(question, language, function(err, translation) {
+        transQuestion = translation.translatedText;
+        translating(transQuestion);
+      });
+    }
+
+    setLanguage(language);
+    cookie.save("language", language, { path: "/" });
+  }
+
+    return (
+      <div>
+        <p>{question}</p>
+
+        {/* iterate through language options to create a select box */}
+        <select
+          className="select-language"
+          value={language}
+          onChange={e => {changeHandler(e.target.value)}}
+        >
+          {languageCodes.map(lang => (
+            <option key={lang.language} value={lang.language}>
+              {lang.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+
+};
     
-/*const opts = {
-    to: axios.languages.getCode("spanish"), // Get code of language.
-    from: "en", // Defaults to "auto" which auto detects the language.
-};  
-
-useEffect(() => {
-    axios
-    .post("Hello World!", opts)
-    .then(response => {
-        console.log(response.text); // Translated text...
-        console.log(response.from.text.value); // Return auto-corrected source text highlighting the issue.
-        console.log(response.from.language.iso); // Translated from...
-    })
-    .catch(console.error);
-});
-
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  }*/
+/*
 
     return (
         <div className="main">
@@ -38,6 +78,6 @@ useEffect(() => {
           <button>Save to Flashcard</button>
         </div>
 );
-};
+};*/
 
 export default Translator;
