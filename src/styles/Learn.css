@@ -21,7 +21,8 @@
 
 .learn-item:hover {
     color: rgb(253, 202, 106);
-    transition: color 0.7s;
+    text-shadow: 2px 1px #000000;
+    transition: color 0.4s;
 }
 
 #translation-form-container {

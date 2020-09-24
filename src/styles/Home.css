@@ -49,10 +49,4 @@
     margin: 1em auto;
 }
 
-footer {
-    background-color: rgba(222, 233, 238, 0.87);
-    margin-bottom: 0;
-    padding: 0.2em;
-    display: flex;
-    flex-direction: row;
-}
+
