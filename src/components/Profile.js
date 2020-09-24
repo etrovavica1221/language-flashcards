@@ -1,19 +1,25 @@
 import React from 'react';
 import axios from "axios";
+import Alert from './Alert';
 import AvatarEditor from 'react-avatar-editor';
-import UserLogin from './UserLogin';
 import '../styles/Profile.css';
 import examplePic from '../styles/cat-reading-newspaper-445x299.jpg';
 
 class Profile extends React.Component {
+  alertState = {
+      message: "",
+      isSuccess: false,
+    }
+
   state = {
     //profile
-    forename: "name",
-    surname: "smith",
-    translateFrom:"english",
-    translateTo: "russian",
-    email: "johnsmith@gmail.com",
-    password: "verysecret",
+    forename: this.props.userState.forename,
+    surname: this.props.userState.surname,
+    translateFrom:this.props.userState.translateFrom,
+    translateTo: this.props.userState.translateTo,
+    email: this.props.userState.email,
+    newPassword: "",
+    confirmNewPassword: "",
     //avatar
     image: examplePic,
     allowZoomOut: false,
@@ -22,25 +28,8 @@ class Profile extends React.Component {
     rotate: 0,
     borderRadius: 50,
     width: 120,
-    height: 120  
+    height: 120
   }
-
-  // componentDidMount() {
-  //   axios
-  //   .get("http://localhost:5000")
-  //   .then(response => {
-  //     // this.setState((prevState) => ({
-  //     //   forename: Value.forename,
-  //     //   surname: Value.surname,
-  //     //   translateFrom: Value.translateFrom,
-  //     //   translateTo: Value.translateTo,
-  //     //   email: Value.email,
-  //     //   password: Value.password,
-  //     //   ...prevState
-  //     // }))
-  //     console.log(response)
-  //   })
-  // }
 
   handleScale = e => {
     const scale = parseFloat(e.target.value)
@@ -51,49 +40,44 @@ class Profile extends React.Component {
     this.setState({image: e.target.files[0]})
   }
    
-  handleSave = data => {
-    const img = this.editor.getImageScaledToCanvas().toDataURL()
-    const rect = this.editor.getCroppingRect()
-    
-    // e.preventDefault();
-    // if (Value.password === Value.confirmPassword) {
-      //   console.log('passwords match');
-      //   axios
-      //     .put("http://localhost:5000", {
-        //       forename: Value.forename,
-        //       surname: Value.surname,
-    //       translateFrom: Value.translateFrom,
-    //       translateTo: Value.translateTo,
-    //       email: Value.email,
-    //       password: Value.password,
-    //     })
-    //     .then((response) => {
-    //       console.log(response);
-    //       setUserState({
-      //         img,
-    //         rect,
-    //         scale: this.state.scale,
-    //         userName: response.data.forename,
-    //         forename: Value.forename,
-    //         surname: Value.surname,
-    //         translateFrom: response.data.translateFrom,
-    //         translateTo: response.data.translateTo,
-    //         email: Value.email,
-    //         password: Value.password,
-    //         loggedIn: true,
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }
+  handleChange = e => {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSave = (e) => {
+    //const img = this.editor.getImageScaledToCanvas().toDataURL()
+    //const rect = this.editor.getCroppingRect()
+    e.preventDefault();
+    if (this.state.newPassword === this.state.confirmNewPassword) {
+      axios
+        .patch(`https://translation-app-mcrcodes.herokuapp.com/updateUser?id="${this.props.userState.userID}"`, {
+          "forename":this.state.forename,
+          "surname":this.state.surname,
+          "translateFrom":this.state.translateFrom,
+          "translateTo":this.state.translateTo,
+          "password":this.state.newPassword
+        })
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+          this.props.userState.forename = this.state.forename
+          this.props.userState.surname = this.state.surname
+          this.props.userState.translateFrom = this.state.translateFrom
+          this.props.userState.translateTo = this.state.translateTo
+          this.setState({edit: false});
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      console.log('passwords')
+      this.alertState.message = "Passwords do not match"
+      this.alertState.isSuccess = false
+      console.log(this.alertState)
+    }
   }
   
-  // edit = () => {
-  //   this.setState({edit: !this.state.edit})
-  // }
-
   render() {
+
     return (
       <div className="profile-data">
         <div id='profile-wrap'>
@@ -114,9 +98,6 @@ class Profile extends React.Component {
                 <input name="newImage" type="file" onChange={this.handleNewImage} />
                 <br />
                 <input type="range" onChange={this.handleScale} min='1.2' max="2" step="0.05"/>
-                <br />
-                <input type="button" className="base-button" onClick={this.handleSave} value="OK" />
-                <br />
               </div>
             ):(
               null
@@ -156,30 +137,33 @@ class Profile extends React.Component {
           </div>)
           :(
           <div id='profile-input-container-edit'>
+            <h4>Only update the fields that need to be updated in your profile</h4>
+            {this.alertState.message && (<Alert message={this.alertState.message} success={this.alertState.isSuccess} />)}
             <label htmlFor='forename'>Name:</label>
-            <input className='profile-input' type="text" placeholder="First Name" required name="forename" />
+            <input className='profile-input' type="text" onChange={this.handleChange} placeholder="First Name" defaultValue={this.state.forename} required name="forename" />
             <label htmlFor='surname'>Surname:</label>
-            <input className='profile-input' type="text" placeholder="Surname" required name="surname" />
+            <input className='profile-input' type="text" onChange={this.handleChange} placeholder="Surname" defaultValue={this.state.surname} required name="surname" />
             <label htmlFor='email'>Email:</label>
-            <input className='profile-input' type="email" placeholder="Email Address" required name="email" />
-            <label htmlFor='password'>Password:</label>
-            <input className='profile-input' type="password" placeholder="Password" required name="password" />
-            <label htmlFor='confirmPassword'>Confirm Password:</label>
-            <input className='profile-input' type="password" placeholder="Confirm Password" required name="confirmPassword" />
+            <input className='profile-input' type="email" onChange={this.handleChange} placeholder="Email Address" defaultValue={this.state.email} disabled name="email" />
+            <label htmlFor='password'>New Password:</label>
+            <input className='profile-input' type="password" onChange={this.handleChange} placeholder="Password" required name="newPassword" />
+            <label htmlFor='confirmPassword'>Confirm New Password:</label>
+            <input className='profile-input' type="password" onChange={this.handleChange} placeholder="Confirm Password" required name="confirmNewPassword" />
             <label htmlFor='translateFrom'>Translate From:</label>
-            <select className='profile-input' defaultValue="Translate From" name="translateFrom">
+            <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateFrom} name="translateFrom">
               <option value="">Translate From</option>
               <option value="EN">English</option>
               <option value="RU">Russian</option>
               <option value="CH">Chinese</option>
             </select>
             <label htmlFor='translateTo'>Translate To:</label>
-            <select className='profile-input' defaultValue="Translate To" name="translateTo">
+            <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateTo} name="translateTo">
               <option value="">Translate To</option>
               <option value="EN">English</option>
               <option value="RU">Russian</option>
               <option value="CH">Chinese</option>
             </select>
+            <input type="button" className="base-button" onClick={this.handleSave} value="OK" />
             <button
               className="base-button"
               id="cancel-button"
