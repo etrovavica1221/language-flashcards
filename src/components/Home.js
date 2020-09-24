@@ -4,12 +4,9 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
-=======
 import axios from "axios";
->>>>>>> bf3f62292ec328ca1d9806e8a99b963aacb2cd97
 import '../styles/Home.css';
 
 const translateState = {

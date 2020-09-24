@@ -21,10 +21,6 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-<<<<<<< HEAD
-=======
-    "react-translate": "^7.0.1",
->>>>>>> bf3f62292ec328ca1d9806e8a99b963aacb2cd97
     "react-translate-maker": "^3.1.6"
   },
   "scripts": {
