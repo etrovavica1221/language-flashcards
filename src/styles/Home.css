@@ -1,7 +1,7 @@
 #HomePage {
     display: flex;
     flex-direction: column;
-    margin: 3em;
+    margin: 1em auto;
     text-align: center;
     min-height: 100vh;
     font-family: 'Ranchers', cursive;
@@ -22,49 +22,70 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    margin: 1em;
+    min-width: 250px; 
     max-width: 100%;
-    height: 80vh;
+    height: 85vh;
 }
 
-#translation-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 3em 1.5em;
-}
-
-#translation-form {
-    display: flex;
-    flex-direction: row;
-    margin: 2em auto;
-}
-
-#translation-form textarea {
-    width: 60em;
-    height: 40em;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-}
-
-#translation-form textarea[type=text]:focus {
-    border: 3px solid #555;
-}
-
-#large-home-button {
+#large-home-button, #large-logOut-button {
     width: 6.5em;
     height: 3em;
 }
 
+#large-home-button:hover {
+    background-color: rgb(253, 202, 106);
+    transition: background-color 0.4s;
+}
+
+#large-logOut-button:hover {
+    width: 6.5em;
+    height: 3em;
+    background-color: rgba(238, 32, 32, 0.712);
+}
+
 #home-buttons-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4em;
     justify-content: center;
     width: 30%;
     margin: 1em auto;
+}
+
+footer {
+    margin: 2em 0 0 0;
+    padding: 1em;
+    background-color: rgba(222, 233, 238, 0.24);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#copyright {
+    font-size: 1em;
+    margin-bottom: 1px;
+    font-family: 'Balsamiq Sans', cursive; 
+}
+
+@media only screen and (max-width: 800px) {
+    .titles {
+        font-size: 1.5em;
+    }
+
+    h1 > .titles {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #HomePage {
+        margin: 0;
+    }
+
+    #landing {
+        margin: 0;
+    }
 }

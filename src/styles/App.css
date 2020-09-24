@@ -32,8 +32,12 @@ html,body {
     cursor: pointer;
 }
 
+.base-button:hover {
+    background-color: rgb(253, 202, 106);
+    transition: background-color 0.4s;
+}
+
 #cancel-button {
     background-color: rgba(238, 32, 32, 0.712);
     margin-top: 2em;
 }
-
