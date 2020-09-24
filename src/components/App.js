@@ -11,12 +11,15 @@ import '../styles/App.css';
 
 const initialState = {
   user: {
+    forename: "",
+    surname: "",
+    translateFrom: "",
+    translateTo: "",
+    email: "",
     loggedIn: false,
-    userName: '',
-    translateFrom: '',
-    translateTo: '',
+    userID: "",
   },
-};
+}
 
 function App() {
   const [user, setUser] = useState(initialState.user);
@@ -27,7 +30,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile" render={() => <Profile userState={user} />} />
           <Route exact path="/learn" component={Learn} />
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
