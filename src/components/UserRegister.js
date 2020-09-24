@@ -5,10 +5,18 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../styles/LoginRegister.css';
+import Alert from './Alert';
 import axios from "axios";
 
+const alertState = {
+  alert: {
+    message: "",
+    isSuccess: false,
+  },
+}
 const UserRegister = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState();
+  const [alert, setAlert] = useState(alertState.alert);
   const history = useHistory();
   const handleChange = (e) => {
     setCurrValue({
@@ -33,16 +41,24 @@ const UserRegister = ({ userState, setUserState }) => {
         .then((response) => {
           console.log(response);
           setUserState({
-            userName: response.data.forename,
+            forename: Value.forename,
+            surname: Value.surname,
             translateFrom: response.data.translateFrom,
             translateTo: response.data.translateTo,
+            email: Value.email,
             loggedIn: true,
+            userID: response.data.ID,
           });
           history.push("/");
         })
         .catch((err) => {
           console.log(err);
         });
+    } else {
+      setAlert({
+        message: "Passwords do not match",
+        isSuccess: false,
+    })
     }
   };
 
@@ -51,6 +67,7 @@ const UserRegister = ({ userState, setUserState }) => {
   return (
     <div className="UserRegister">
       <h1 className="titles">Register</h1>
+      <div className="hyperlink" >{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
       <form action="submit" onSubmit={handleSubmit}>
         <input type="text" placeholder="First Name" required name="forename" onChange={handleChange} />
         <input type="text" placeholder="Surname" required name="surname" onChange={handleChange} />
