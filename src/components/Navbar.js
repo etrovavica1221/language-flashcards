@@ -8,23 +8,24 @@ function Navbar() {
       <img id="logo" src={require("../styles/logo.png")} alt="logo" width="200" height="45" />
       <ul className="navbar-links">
         <Link to="/">
-          <li className="navbar-links-item">
+            <li className="navbar-links-item">
             Home
-          </li>
-        </Link>
-        <Link to="/profile">
-          <li className="navbar-links-item">
+            </li>
+          </Link>
+          <Link to="/profile">
+            <li className="navbar-links-item">
             Profile
-          </li>
-        </Link>
-        <Link to="/learn">
-          <li className="navbar-links-item">
+            </li>
+          </Link>
+          <Link to="/learn">
+            <li className="navbar-links-item">
             Learn
-          </li>
-        </Link>
+            </li>
+        </Link> 
       </ul>
     </div>
   );
 }
 
 export default Navbar;
+

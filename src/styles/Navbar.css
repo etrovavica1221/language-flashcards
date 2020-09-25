@@ -1,17 +1,15 @@
 .navbar {
     background-color: rgba(222, 233, 238, 0.87);
     margin: 0;
-    padding: 0.2em;
+    padding: 0.5em;
     display: flex;
     flex-direction: row;
 }
 
-.navbar-links {
-    margin-right: 3em;
-    margin-left: auto;
+#navbar-links {
+    margin: 1em 2em auto 2em;
     padding: 0;
     text-align: center;
-    align-items: center;
     text-decoration: none;
 }
 
@@ -19,13 +17,81 @@
     font-family: 'Ranchers', cursive;
     color: rgb(211, 141, 12);
     text-shadow: 1px 1px #000000;
-    margin: 0 2em;
-    font-size: 26px;
+    margin: auto 2em;
+    font-size: 1.6em;
     display: inline-block;
     font-weight: bold;
     text-decoration: none;
 }
 
-#logo {
-    margin: 5px;
+.navbar-links-item:hover {
+    color: rgb(253, 202, 106);
+    text-shadow: 2px 1px #000000;
+    transition: color 0.4s;
+}
+
+#logo-container {
+    margin: 5px auto auto 5px;
+
+}
+
+#logo {  
+    width: 200px;
+    height: 45px;
+}
+
+#bars-container {
+    position: relative;
+    margin: 0.2em 0.5em auto auto;
+}
+
+#bars-icon {
+    font-size: 1.6em;
+    color: rgb(211, 141, 12);
+    text-shadow: 1px 1px #000000;
+    cursor: pointer;
+}
+
+#bars-icon:hover {
+    color: rgb(253, 202, 106);
+    transition: color 0.4s;
+}
+
+@media only screen and (max-width: 800px) {
+    .navbar {
+        display: block;
+        text-align: center;
+        overflow: auto;
+    }
+
+    #navbar-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #logo {
+        width: 150px;
+        height: 40px;
+    }
+
+    .navbar-links-item {
+        margin: 2px;
+        width: 100%;
+        font-size: 1em;
+        border: 2px ridge black;
+        padding: 0.2em;
+        background-color: rgba(255, 235, 205, 0.308);
+    }
+
+    .navbar-links-item:hover {
+        color: rgb(211, 141, 12);
+        background-color: rgba(255, 235, 205, 0.808)
+    }
+
+
+    #bars-container {
+        position: relative;
+        margin: 0 auto 0.1em 0.8em;
+    }
+
 }

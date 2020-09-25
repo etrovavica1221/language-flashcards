@@ -1,0 +1,55 @@
+#Learn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.learn-item {
+    font-family: 'Ranchers', cursive;
+    color: rgb(211, 141, 12);
+    text-shadow: 1px 1px #000000;
+    margin: 2em auto;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 32px;
+    text-decoration: none;
+}
+
+.learn-link {
+    margin: 0 auto;
+}
+
+.learn-item:hover {
+    color: rgb(253, 202, 106);
+    text-shadow: 2px 1px #000000;
+    transition: color 0.4s;
+}
+
+#translation-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4em auto;
+}
+
+#translation-form {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 4em 0;
+}
+
+#translation-form textarea {
+    width: 40em;
+    height: 40em;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+#translation-form textarea[type=text]:focus {
+    border: 3px solid #555;
+}

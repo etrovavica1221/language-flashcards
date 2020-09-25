@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Alert from './Alert';
+import Translator from './Translator';
 import axios from "axios";
 import '../styles/Home.css';
 import '../styles/LoginRegister.css';
@@ -12,9 +13,9 @@ const translateState = {
 
 const alertState = {
   alert: {
-    message: "",
-    isSuccess: false,
-  },
+  message: "",
+  isSuccess: false,
+},
 }
 
 const Learn = ({ userState, setUserState }) => {
@@ -24,9 +25,9 @@ const Learn = ({ userState, setUserState }) => {
   const handleChange = (e) => { 
     setCurrValue({
       ...Value,
-      translatedPhrase: e.target.value,
       [e.target.name]: e.target.value,
     });
+
     console.log(Value)
   };
   const handleSave = (e) => {
@@ -41,7 +42,6 @@ const Learn = ({ userState, setUserState }) => {
       })
       .then((response) => {
         console.log(response);
-        translateState.initialPhrase = ""
         setAlert({
           message: "Flashcard saved!",
           isSuccess: false,
@@ -54,25 +54,25 @@ const Learn = ({ userState, setUserState }) => {
           isSuccess: false,
         })
       });
-    console.log(userState)
+    console.log(Value)
   };
 
-  return(  
+  return( 
     <div className="Home">
       <div id="translation-form-container">
-          <h1 className="titles">Translate your text and make your own flashcards</h1>
-          <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
-          <form id="translation-form" action="submit" onSubmit={handleSave}>
-            <input type="text" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
-            <input value={Value.initialPhrase} type="text" placeholder="Translation..." required name="translatedPhrase" />
-            <button className="base-button" type="submit" >Save to my Flashcards</button>
-            <Link to="/flashcard"><button className="base-button" type="button" >View my Flashcards</button></Link>
-          </form>
-        </div>
+        <h1 className="titles">Translate your text and make your own flashcards</h1>
+        <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
+        <form id="translation-form" action="submit" onSubmit={handleSave}>
+          <input type="text" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
+          <Translator userState={userState} valueState={Value}/>
+          <button className="base-button" type="submit" >Save to my Flashcards</button>
+          <Link to="/flashcard"><button className="base-button" type="button" >View my Flashcards</button></Link>
+        </form>
+      </div>
     </div>
   )
 };
 
 
-
 export default Learn;
+

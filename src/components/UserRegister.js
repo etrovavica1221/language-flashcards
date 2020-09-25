@@ -47,7 +47,7 @@ const UserRegister = ({ userState, setUserState }) => {
             translateTo: response.data.translateTo,
             email: Value.email,
             loggedIn: true,
-            userID: response.data.ID,
+            userID: response.data._id,
           });
           history.push("/");
         })

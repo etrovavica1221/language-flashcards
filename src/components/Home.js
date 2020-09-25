@@ -39,16 +39,16 @@ const Home = ({ userState, setUserState }) => {
   console.log(userState)
 
   return (
-    
     <div id="HomePage">
       <div id="landing">
-        {message}
-        <br></br>
-        {button}
-        {logout}
+      {message}
+      <br></br>
+      {button}
+      {logout}
       </div>
     </div>
   );
 };
 
 export default Home;
+
