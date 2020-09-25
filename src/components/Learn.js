@@ -19,16 +19,16 @@ const alertState = {
 }
 
 const Learn = ({ userState, setUserState }) => {
-  const [Value, setCurrValue] = useState(translateState);
+  const [Value, setValue] = useState(translateState)
   const [alert, setAlert] = useState(alertState.alert);
   //update the translation automatically
   const handleChange = (e) => { 
-    setCurrValue({
+    setValue({
       ...Value,
       [e.target.name]: e.target.value,
     });
 
-    console.log(Value)
+    
   };
   const handleSave = (e) => {
     e.preventDefault();
@@ -50,13 +50,13 @@ const Learn = ({ userState, setUserState }) => {
       .catch((err) => {
         console.log(err);
         setAlert({
-          message: "Unable save your flashcard",
+          message: "Unable to save your flashcard",
           isSuccess: false,
         })
       });
     console.log(Value)
   };
-
+  console.log(Value)
   return( 
     <div className="Home">
       <div id="translation-form-container">
@@ -64,7 +64,7 @@ const Learn = ({ userState, setUserState }) => {
         <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
         <form id="translation-form" action="submit" onSubmit={handleSave}>
           <input type="text" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
-          <Translator userState={userState} valueState={Value}/>
+          <Translator userState={userState} valueState={Value} setValueState={setValue}/>
           <button className="base-button" type="submit" >Save to my Flashcards</button>
           <Link to="/flashcard"><button className="base-button" type="button" >View my Flashcards</button></Link>
         </form>

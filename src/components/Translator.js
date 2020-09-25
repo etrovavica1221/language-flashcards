@@ -1,14 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import cookie from "react-cookies";
+import React /*{ useState, useEffect }*/ from 'react';
+//import cookie from "react-cookies";
 import { googleTranslate } from "../utils/googleTranslate";
 import '../styles/Translator.css';
 
-const Translator = ({ userState, valueState }) => {
+const Translator = ({ userState, valueState, setValueState }) => {
+  if (valueState.initialPhrase){
+    googleTranslate.translate(valueState.initialPhrase, userState.translateTo, function(err, translation) {
+      
+      setValueState({
+        initialPhrase: valueState.initialPhrase,
+        translatedPhrase: translation.translatedText,
+      })
+    })
+  };
+  console.log(valueState.initialPhrase)
+    return (
+      <div>
+      <form id="translation-form" action="submit">
+        <input type="text" placeholder="Translated phrase..." value={valueState.translatedPhrase} required name="translatedPhrase"/>        
+      </form>
+      </div>
+    );
+};
+
+
+/*const Translator = ({ userState, valueState }) => {
 
   // const [languageCodes, setlanguageCodes] = useState([]);
   // const [language, setLanguage] = useState(cookie.load("language") ? cookie.load("language") : "en",)
-  const [question, setQuestion] = useState(cookie.load("question")
-  ? cookie.load("question"):"")
+  //const [question, setQuestion] = useState(cookie.load("question")
+  //? cookie.load("question"):"")
 
   let translatedPhrase = "";
   // useEffect(() => {
@@ -32,7 +53,7 @@ const Translator = ({ userState, valueState }) => {
         googleTranslate.translate(valueState.initialPhrase, userState.translateTo, function(err, translation) {
         console.log(err)
         console.log(translation)
-        //translatedPhrase = translation.translatedText;
+        translatedPhrase = translation.translatedText;
       })
   };
 
@@ -58,7 +79,7 @@ const Translator = ({ userState, valueState }) => {
   //   setLanguage(language);
   //   cookie.save("language", language, { path: "/" });
   // }
-    console.log(valueState.initialPhrase)
+  console.log(translatedPhrase)
     return (
       <div>
       <form id="translation-form" action="submit">
@@ -68,13 +89,13 @@ const Translator = ({ userState, valueState }) => {
       </div>
     );
 
-};
+};*/
 
-export default Translator;
+export default Translator;  
 
 
 
-{/* <div>
+/* <div>
 <input type="text" value={valueState.value} required name="translatedPhrase"/>
 <select
   className="select-language"
@@ -87,4 +108,4 @@ export default Translator;
     </option>
   ))}
 </select>
-</div> */}
+</div> */
