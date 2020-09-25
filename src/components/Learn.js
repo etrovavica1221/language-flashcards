@@ -1,41 +1,78 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Learn.css';
+import Alert from './Alert';
+import Translator from './Translator';
+import axios from "axios";
+import '../styles/Home.css';
+import '../styles/LoginRegister.css';
 
 const translateState = {
-  value: '',
+  initialPhrase: '',
+  translatedPhrase: '',
 };
 
-const Learn = () => {
-  let saveButton = <Link to="/learn"><button className="base-button" id="large-home-button" type="button">View My Flashcards!</button></Link>;
+const alertState = {
+  alert: {
+  message: "",
+  isSuccess: false,
+},
+}
 
-  const [Value, setCurrValue] = useState(translateState.value);
-
-  const handleChange = (e) => {
+const Learn = ({ userState, setUserState }) => {
+  const [Value, setCurrValue] = useState(translateState);
+  const [alert, setAlert] = useState(alertState.alert);
+  //update the translation automatically
+  const handleChange = (e) => { 
     setCurrValue({
       ...Value,
-      value: e.target.value,
+      [e.target.name]: e.target.value,
     });
+
+    console.log(Value)
+  };
+  const handleSave = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://translation-app-mcrcodes.herokuapp.com/addFlashcard", {
+        userID: userState.userID,
+        initialPhrase: Value.initialPhrase,
+        translatedPhrase: Value.translatedPhrase,
+        translateFrom: userState.translateFrom,
+        translateTo: userState.translateTo
+      })
+      .then((response) => {
+        console.log(response);
+        setAlert({
+          message: "Flashcard saved!",
+          isSuccess: false,
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+        setAlert({
+          message: "Unable save your flashcard",
+          isSuccess: false,
+        })
+      });
+    console.log(Value)
   };
 
-  return (
-    <div id="Learn"> 
-      <Link className="learn-link" to="/my-flashcards">
-        <li className="learn-item">
-          Revise my flashcards
-        </li>
-      </Link>
-      <h1 className="titles">OR</h1>
+  return( 
+    <div className="Home">
       <div id="translation-form-container">
-            <h1 className="titles">Translate your text and make your own flashcards</h1>
-            <form id="translation-form" action="submit">
-                <textarea type="text" placeholder="Enter text to translate..." required name="textInput" onChange={handleChange} />
-                <textarea value={Value.value} type="text" placeholder="Translation..." required name="textOutput" />
-            </form>
-            {saveButton}
+        <h1 className="titles">Translate your text and make your own flashcards</h1>
+        <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
+        <form id="translation-form" action="submit" onSubmit={handleSave}>
+          <input type="text" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
+          <Translator userState={userState} valueState={Value}/>
+          <button className="base-button" type="submit" >Save to my Flashcards</button>
+          <Link to="/flashcard"><button className="base-button" type="button" >View my Flashcards</button></Link>
+        </form>
       </div>
     </div>
-  ); 
+  )
 };
 
+
 export default Learn;
+
