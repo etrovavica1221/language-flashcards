@@ -45,9 +45,9 @@ const Navbar = () => {
         null
       )}
       <div id="bars-container"> 
-        <a id="bars-icon" onClick={ toggleHamburger }>           
+        <button id="bars-icon" onClick={ toggleHamburger }>           
             <FontAwesomeIcon icon={ faBars } />
-        </a>
+        </button>
       </div>
     </div>   
   );
