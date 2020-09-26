@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
 import Profile from './Profile';
@@ -30,8 +30,8 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path="/profile" render={() => <Profile userState={user} />} />
-          <Route exact path="/learn" component={Learn} />
+          <Route exact path="/profile" render={() => user.loggedIn ? <Profile userState={user} /> : <Redirect to="/" />} />
+          <Route exact path="/learn" render={() => user.loggedIn ? <Learn userState={user} setUserState={setUser} /> : <Redirect to="/" />} />
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
           <Route exact path="/" render={() => <Home userState={user} setUserState={setUser} />} />
@@ -41,6 +41,8 @@ function App() {
     </BrowserRouter>
   );
 }
+
+
 
 const SAMPLE_FLASHCARDS = [
   {

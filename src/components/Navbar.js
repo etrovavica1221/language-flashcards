@@ -1,21 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Navbar.css';
 
-const Navbar = () => {
-
-  const navbarState ={
-    isOpen: true,
-  }
-
-  const [isOpen, setHamburger] = useState(navbarState.isHamburger)
-
-  const toggleHamburger = () => {
-    setHamburger(!isOpen)
-  }
-
+function Navbar() {
   return (
     <div className="navbar">
       <Link id="logo-container" to="/">
@@ -54,3 +41,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

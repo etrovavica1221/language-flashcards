@@ -55,9 +55,20 @@ class Profile extends React.Component {
           "surname":this.state.surname,
           "translateFrom":this.state.translateFrom,
           "translateTo":this.state.translateTo,
-          "password":this.state.newPassword
         })
         .then((response) => {
+          if (this.state.newPassword) {
+            axios
+              .patch(`https://translation-app-mcrcodes.herokuapp.com/updateUser?id="${this.props.userState.userID}"`, {
+                "password":this.state.newPassword
+              })
+              .then((response) => {
+                console.log(response)
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+          }
           console.log(JSON.stringify(response.data));
           this.props.userState.forename = this.state.forename
           this.props.userState.surname = this.state.surname
