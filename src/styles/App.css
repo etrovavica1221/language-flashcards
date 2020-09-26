@@ -21,13 +21,13 @@ html,body {
 
 .base-button {
     width: auto;
-    height: 2em;
+    height: 2.5em;
     margin: 1em auto;
     border: 2px solid black;
     color: black;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: bolder;
     background-color: white;
     cursor: pointer;
 }

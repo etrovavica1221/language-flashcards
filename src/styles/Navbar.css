@@ -51,15 +51,16 @@
 #bars-container {
     position: relative;
     margin: 0.2em 0.5em auto auto;
+    padding: 0;
 }
 
 #bars-icon {
     font-size: 1.6em;
     color: rgb(211, 141, 12);
-    text-shadow: 1px 1px #000000;
     cursor: pointer;
-    border: 2px solid rgb(211, 141, 12);
-    border-radius: 5px;
+    border: 0px;
+    width: 100%;
+    padding: 6px 11px;
 }
 
 #bars-icon:hover {

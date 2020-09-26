@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Navbar.css';
 
 function Navbar() {
+  const navbarState ={
+    isOpen: true,
+  }
+
+  const [isOpen, setHamburger] = useState(navbarState.isHamburger)
+
+  const toggleHamburger = () => {
+    setHamburger(!isOpen)
+  }
+
   return (
     <div className="navbar">
       <Link id="logo-container" to="/">
