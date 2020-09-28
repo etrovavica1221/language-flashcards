@@ -22,7 +22,7 @@ html,body {
 .base-button {
     width: auto;
     height: 2.5em;
-    margin: 1em auto;
+    margin: 0.5em auto;
     border: 2px solid black;
     color: black;
     border-radius: 5px;

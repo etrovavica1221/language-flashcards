@@ -29,9 +29,18 @@
     height: 85vh;
 }
 
+#home-buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8em;
+    justify-content: center;
+    margin: 1em auto;
+}
+
 #large-home-button, #large-logOut-button {
-    width: 6.5em;
-    height: 3em;
+    width: 7em;
+    height: 4em;
 }
 
 #large-home-button:hover {
@@ -40,19 +49,8 @@
 }
 
 #large-logOut-button:hover {
-    width: 6.5em;
-    height: 3em;
     background-color: rgba(238, 32, 32, 0.712);
-}
-
-#home-buttons-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4em;
-    justify-content: center;
-    width: 30%;
-    margin: 1em auto;
+    transition: background-color 0.4s;
 }
 
 #footer-container {
@@ -91,6 +89,12 @@ footer {
 
     #copyright {
         font-size: 0.5em;
+    }
+
+    #home-buttons-container {
+        flex-direction: column;
+        gap: 1em;
+        margin: 0 auto;
     }
 }
 
