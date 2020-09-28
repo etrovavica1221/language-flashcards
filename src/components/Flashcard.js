@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
-import axios from "axios";
 import '../styles/Flashcard.css';
 
 const Flashcard = ({ flashcard }) => {

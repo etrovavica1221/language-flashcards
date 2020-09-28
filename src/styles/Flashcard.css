@@ -25,6 +25,10 @@
     width: 380px;
     border-radius: 40px;
     box-shadow: 6px 6px 10px rgb(18, 30, 32);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
   }
   
   .card-text-original {

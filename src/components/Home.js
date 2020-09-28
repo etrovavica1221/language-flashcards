@@ -4,6 +4,8 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Home.css';
 
 const Home = ({ userState, setUserState }) => {
@@ -27,11 +29,11 @@ const Home = ({ userState, setUserState }) => {
   };
   //home page definition
   if (isLoggedIn) {
-    message = <h1 className="titles">Welcome back {userState.forename}!!</h1>;
-    button = <Link to="/learn"><button className="base-button" type="button">View My Flashcards!</button></Link>;
-    logout = <Link to="/"><button className="base-button" type="button" onClick={handleLogout}>Log Out</button></Link>;
+    message = <h1 className="titles">Welcome back, {userState.forename}!</h1>;
+    button = <Link to="/flashcard"><button className="base-button" id="large-home-button" type="button">View My Flashcards!</button></Link>;
+    logout = <Link to="/"><button className="base-button" id="large-logOut-button" type="button" onClick={handleLogout}>Log Out</button></Link>;
   } else {
-    message = <h1 className='titles'>Welcome to translator app!<div className='titles'>Please log in</div></h1>;
+    message = <h1 className='titles'>Welcome to LingoGuru!<div className='titles'>Please log in</div></h1>;
     button = <Link to="/login"><button className="base-button" type="button">Log in</button></Link>;
     logout = "";
   }
@@ -43,8 +45,16 @@ const Home = ({ userState, setUserState }) => {
       <div id="landing">
       {message}
       <br></br>
-      {button}
-      {logout}
+      <div id="home-buttons-container">
+        {button}
+        {logout}
+      </div>
+      </div>
+      <div id="footer-container">
+        <footer>
+          <FontAwesomeIcon icon={ faCopyright } />
+          <p id="copyright">Copyright</p>
+        </footer>
       </div>
     </div>
   );

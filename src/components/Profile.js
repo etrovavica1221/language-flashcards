@@ -133,7 +133,7 @@ class Profile extends React.Component {
             <h1 className='profile-details' name="translateFrom">
               {this.state.translateFrom}
             </h1>
-            <label className='profile-labels' for='translateTo'>Translate To:</label>
+            <label className='profile-labels' htmlFor='translateTo'>Translate To:</label>
             <h1 className='profile-details' name="translateTo">
               {this.state.translateTo}
             </h1>
@@ -148,7 +148,7 @@ class Profile extends React.Component {
           </div>)
           :(
           <div id='profile-input-container-edit'>
-            <h4>Only update the fields that need to be updated in your profile</h4>
+            <h4>*Only update the fields that need to be updated in your profile</h4>
             {this.alertState.message && (<Alert message={this.alertState.message} success={this.alertState.isSuccess} />)}
             <label htmlFor='forename'>Name:</label>
             <input className='profile-input' type="text" onChange={this.handleChange} placeholder="First Name" defaultValue={this.state.forename} required name="forename" />

@@ -8,7 +8,7 @@ import UserLogin from './UserLogin';
 import UserRegister from './UserRegister';
 import '../styles/App.css';
 import FlashcardList from './Flashcardlist';
-import axios from 'axios';
+import Flashcard from './Flashcard';
 
 const initialState = {
   user: {
@@ -60,6 +60,7 @@ function App() {
         <Switch>
           <Route exact path="/profile" render={() => user.loggedIn ? <Profile userState={user} /> : <Redirect to="/" />} />
           <Route exact path="/learn" render={() => user.loggedIn ? <Learn userState={user} setUserState={setUser} /> : <Redirect to="/" />} />
+          <Route exact path="/flashcard" render={() => user.loggedIn ? <Flashcard userState={user} setUserState={setUser} /> : <Redirect to="/" />} />
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
           <Route exact path="/" render={() => <Home userState={user} setUserState={setUser} />} />
