@@ -17,32 +17,6 @@ function Navbar() {
 
   return (
     <div className="navbar">
-<<<<<<< HEAD
-      <img id="logo" src={require("../styles/logo.png")} alt="logo" width="200" height="45" />
-      <ul className="navbar-links">
-        <Link to="/">
-            <li className="navbar-links-item">
-            Home
-            </li>
-          </Link>
-          <Link to="/profile">
-            <li className="navbar-links-item">
-            Profile
-            </li>
-          </Link>
-          <Link to="/learn">
-            <li className="navbar-links-item">
-            Learn
-            </li>
-          </Link>
-          <Link to="/flashcard">
-            <li className="navbar-links-item">
-            Flashcard
-            </li>
-        </Link> 
-      </ul>
-    </div>
-=======
       <Link id="logo-container" to="/">
         <img id="logo" src={require("../styles/logo.png")} alt="logo" />   
       </Link>
@@ -75,7 +49,6 @@ function Navbar() {
         </button>
       </div>
     </div>   
->>>>>>> master
   );
 }
 
