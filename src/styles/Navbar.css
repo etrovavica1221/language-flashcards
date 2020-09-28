@@ -52,6 +52,8 @@
     position: relative;
     margin: 0.2em 0.5em auto auto;
     padding: 0;
+    border: none;
+    background: none;
 }
 
 #bars-icon {
@@ -60,7 +62,13 @@
     cursor: pointer;
     border: 0px;
     width: 100%;
-    padding: 6px 11px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#bars-icon:focus { 
+    outline: none; 
 }
 
 #bars-icon:hover {
