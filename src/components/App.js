@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -7,8 +7,8 @@ import Learn from './Learn';
 import UserLogin from './UserLogin';
 import UserRegister from './UserRegister';
 import '../styles/App.css';
+import FlashcardList from './Flashcardlist';
 import Flashcard from './Flashcard';
-// import FlashcardList from './Flashcardlist';
 
 const initialState = {
   user: {
@@ -19,12 +19,39 @@ const initialState = {
     email: "",
     loggedIn: false,
     userID: "",
-  },
-}
+  }, 
+  savedFlashcards: [{
+    id: 1,
+    original: "hello",
+    translation: "goodbye"
+   }]
+};
+
+/*useEffect (() => {
+  axios
+    .get("https://translation-app-mcrcodes.herokuapp.com")
+    .then((response) => response.json())
+    .then((data) => {
+        setState({
+            quoteData: data.quotes
+            })
+      })
+      .catch(error => console.log('Error', error));
+
+    randomFlashcard();
+      initialPhrase: Value.initialPhrase,
+      translatedPhrase: Value.translatedPhrase
+});
+
+  randomFlaschard() {
+    const randomNumber = Math.floor(Math.random() * this.quoteData.length);
+    return this.quoteData[randomNumber];
+  }*/
 
 function App() {
   const [user, setUser] = useState(initialState.user);
-  const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+  const [flashcards, setFlashcards] = useState(initialState.savedFlashcards);
+
   
   return (
     <BrowserRouter>
@@ -37,21 +64,12 @@ function App() {
           <Route exact path="/login" render={() => <UserLogin userState={user} setUserState={setUser} />} />
           <Route exact path="/register" render={() => <UserRegister userState={user} setUserState={setUser} />} />
           <Route exact path="/" render={() => <Home userState={user} setUserState={setUser} />} />
-          {/* <Route exact path="/flashcard" render={() => <FlashcardList flashcards={flashcards} />} /> */}
+          <Route exact path="/flashcard" render={() => <FlashcardList flashcards={flashcards} />} /> 
         </Switch>
       </div>
     </BrowserRouter>
   );
 }
 
-
-
-const SAMPLE_FLASHCARDS = [
-  {
-    id: 1,
-    original: "this is a sentence",
-    translation: "this is another sentence"
-  }
-]
 
 export default App;

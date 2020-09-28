@@ -1,4 +1,4 @@
-/* body {
+/*body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,9 +12,13 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 25px;
-  } */
+  }*/
   
   .card-container {
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: white;
     color: rgb(95, 95, 95);
     height: 500px;
@@ -35,5 +39,5 @@
   .card-text-translation {
     font-style: italic;
     position: relative;
-    top: 40%;
+    top: 50%;
   }

@@ -38,7 +38,7 @@ const Home = ({ userState, setUserState }) => {
     logout = "";
   }
 
-  console.log(userState)
+  //console.log(userState)
 
   return (
     <div id="HomePage">

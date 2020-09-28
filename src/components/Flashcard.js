@@ -4,30 +4,30 @@ import '../styles/Flashcard.css';
 
 const Flashcard = ({ flashcard }) => {
 
-  const [isFlipped, setIsFlipped] = useState(false);
+   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
+   const handleClick = () => {
+     setIsFlipped(!isFlipped);
+   };
 
-  return (
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-        <div className="card-container" onClick={handleClick}>
-          <div className="card-text-original">
-            {flashcard.original}
+   return (
+       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+         <div className="card-container" onClick={handleClick}>
+           <div className="card-text-original">
+             {flashcard.original}
+           </div>
+         </div>
+
+         <div className="card-container" onClick={handleClick}>
+           <div className="card-text-original">
+             {flashcard.original}
+           </div>
+           <div className="card-text-translation">
+             {flashcard.translation}
           </div>
-        </div>
+         </div>
+       </ReactCardFlip>
+   );
+ };
 
-        <div className="card-container" onClick={handleClick}>
-          <div className="card-text-original">
-            {flashcard.original}
-          </div>
-          <div className="card-text-translation">
-            {flashcard.translation}
-          </div>
-        </div>
-      </ReactCardFlip>
-  );
-};
-
-export default Flashcard;
+ export default Flashcard;
