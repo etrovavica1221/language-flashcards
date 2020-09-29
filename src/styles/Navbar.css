@@ -76,6 +76,18 @@
     transition: color 0.4s;
 }
 
+@media only screen and (max-width: 1200px) {
+    #navbar-links {
+        margin: 1em 6em auto 1em;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #navbar-links {
+        margin: 1em 3em auto 1em;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     .navbar {
         display: block;
