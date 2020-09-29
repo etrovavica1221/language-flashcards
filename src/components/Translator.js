@@ -1,5 +1,5 @@
 import React /*{ useState, useEffect }*/ from 'react';
-//import cookie from "react-cookies";
+// import cookie from "react-cookies";
 import { googleTranslate } from "../utils/googleTranslate";
 import '../styles/Translator.css';
 
