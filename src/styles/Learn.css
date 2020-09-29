@@ -29,19 +29,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4em auto;
+    margin: 3em auto;
 }
 
 #translation-form {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 90%;
     margin: 4em 0;
 }
 
 #translation-form textarea {
-    width: 40em;
-    height: 40em;
+    width: 45em;
+    height: 25em;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -52,4 +53,75 @@
 
 #translation-form textarea[type=text]:focus {
     border: 3px solid #555;
+}
+
+#learn-buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8em;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.large-learn-button {
+    width: 7em;
+    height: 4em;
+    border: 2px solid black;
+    color: black;
+    border-radius: 5px;
+    font-weight: bolder;
+    background-color: white;
+    cursor: pointer;
+}
+
+.large-learn-button:hover {
+    background-color: rgb(253, 202, 106);
+    transition: background-color 0.4s;
+}
+
+@media only screen and (max-width: 500px) {
+    .titles {
+        font-size: 1.4em;
+        margin: 1em 0.5em;
+    }
+
+    #translation-form {
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+        margin: 4em auto;
+    }
+
+    #translation-form textarea {
+        width: 24em;
+        height: 20em;
+        margin: 0 auto;
+    }
+
+    #learn-buttons-container {
+        gap: 4em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #translation-form textarea {
+        width: 20em;
+    }
+
+    #learn-buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .titles {
+        font-size: 1.2em;
+    }
+
+    #translation-form textarea {
+        width: 16em;
+    }
 }

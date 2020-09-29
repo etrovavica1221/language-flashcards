@@ -18,12 +18,14 @@ const UserRegister = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState();
   const [alert, setAlert] = useState(alertState.alert);
   const history = useHistory();
+  
   const handleChange = (e) => {
     setCurrValue({
       ...Value,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Value.password === Value.confirmPassword) {
@@ -52,11 +54,11 @@ const UserRegister = ({ userState, setUserState }) => {
         })
         .catch((err) => {
           setAlert({
-            message: "Email address already in use please use log in page",
-            isSuccess: false,
-          })
+          message: "Email address already in use please use log in page",
+          isSuccess: false,
+        })
         });
-      };
+    };
   }
   console.log('VALUE', Value);
 
@@ -90,3 +92,4 @@ const UserRegister = ({ userState, setUserState }) => {
 };
 
 export default UserRegister;
+

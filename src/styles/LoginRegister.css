@@ -7,13 +7,17 @@ form {
     display: flex;
     flex-direction: column;
     width: 60%;
-    margin: auto;
+    margin: 2em auto;
 }
 
-Input, select{
+input, select{
     margin: 0.5em;
     height: 30px;
     border-radius: 5px;
+}
+
+#password-input {
+    margin-bottom: 2em;
 }
 
 .hyperlink {
@@ -21,5 +25,15 @@ Input, select{
 }
 
 .hyperlink:hover {
-    background-color: rgb(253, 202, 106);
+    color: rgb(253, 202, 106);
+}
+
+@media only screen and (max-width: 800px) {
+    form {
+        width: 80%;
+    }
+
+    .UserLogin, .UserRegister{
+        margin: 2em auto;
+    }
 }

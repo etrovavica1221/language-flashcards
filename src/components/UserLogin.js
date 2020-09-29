@@ -62,7 +62,7 @@ const UserLogin = ({ userState, setUserState }) => {
       <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
       <form action="submit" onSubmit={handleSubmit}>
         <input type="text" placeholder="Email Address" required name="email" onChange={handleChange} />
-        <input type="password" placeholder="Password" required name="password" onChange={handleChange} />
+        <input id="password-input" type="password" placeholder="Password" required name="password" onChange={handleChange} />
         <button className="base-button" type="submit">Log in</button>
         <Link className="hyperlink" to="/register">Not a member? Register here.</Link>
       </form>

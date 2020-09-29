@@ -5,20 +5,16 @@ import '../styles/Translator.css';
 const Translator = ({ userState, valueState, setValueState }) => {
   if (valueState.initialPhrase){
     googleTranslate.translate(valueState.initialPhrase, userState.translateTo, function(err, translation) {
-    setValueState({
-      initialPhrase: valueState.initialPhrase,
-      translatedPhrase: translation.translatedText,
-    })
+      
+      setValueState({
+        initialPhrase: valueState.initialPhrase,
+        translatedPhrase: translation.translatedText,
+      })
     })
   };
-  console.log(valueState.initialPhrase)
     return (
-      <div>
-      <form id="translation-form" action="submit">
-        <input type="text" placeholder="Translated phrase..." value={valueState.translatedPhrase} required name="translatedPhrase"/>        
-      </form>
-      </div>
+      <textarea type="text" placeholder="Translated phrase..." value={valueState.translatedPhrase} required name="translatedPhrase"/>        
     );
 };
 
-export default Translator;
+export default Translator; 
