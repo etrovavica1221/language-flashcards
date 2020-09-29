@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from "axios";
 import Flashcard from './Flashcard';
 
-const FlashcardList = ({ flashcards }) => {
+let savedFlashcards = []
+
+const FlashcardList = ({ userState }) => {
+    const [flashcard, setFlashcard] = useState(savedFlashcards);
+
+    axios
+     .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
+     .then(({ data }) => {
+        setFlashcard(data)
+        });
+
     return (
         <div className="card-grid">
-            {flashcards.map(flashcard => {
-                return <Flashcard flashcard={flashcard} key={flashcard.id} />
+            {flashcard.map(flashcard => {
+                return <Flashcard flashcard={flashcard} key={flashcard._id} />
             })}
         </div>
     )

@@ -18,17 +18,18 @@ const UserRegister = ({ userState, setUserState }) => {
   const [Value, setCurrValue] = useState();
   const [alert, setAlert] = useState(alertState.alert);
   const history = useHistory();
+  
   const handleChange = (e) => {
     setCurrValue({
       ...Value,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Value.password === Value.confirmPassword) {
       console.log('passwords match');
-
       axios
         .post("https://translation-app-mcrcodes.herokuapp.com/", {
           forename: Value.forename,
@@ -52,16 +53,13 @@ const UserRegister = ({ userState, setUserState }) => {
           history.push("/");
         })
         .catch((err) => {
-          console.log(err);
+          setAlert({
+          message: "Email address already in use please use log in page",
+          isSuccess: false,
+        })
         });
-    } else {
-      setAlert({
-        message: "Passwords do not match",
-        isSuccess: false,
-    })
-    }
-  };
-
+    };
+  }
   console.log('VALUE', Value);
 
   return (
@@ -94,3 +92,4 @@ const UserRegister = ({ userState, setUserState }) => {
 };
 
 export default UserRegister;
+

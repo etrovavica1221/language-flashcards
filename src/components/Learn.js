@@ -23,14 +23,14 @@ const Learn = ({ userState, setUserState }) => {
   const [Value, setValue] = useState(translateState)
   const [alert, setAlert] = useState(alertState.alert);
   //update the translation automatically
+  
   const handleChange = (e) => { 
     setValue({
       ...Value,
       [e.target.name]: e.target.value,
     });
-
-    
   };
+
   const handleSave = (e) => {
     e.preventDefault();
     axios
