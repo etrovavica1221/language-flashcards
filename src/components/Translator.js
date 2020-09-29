@@ -15,11 +15,7 @@ const Translator = ({ userState, valueState, setValueState }) => {
   };
   //console.log(valueState.initialPhrase)
     return (
-      <div>
-       <form id="translation-form" action="submit">
-        <input type="text" placeholder="Translated phrase..." value={valueState.translatedPhrase} required name="translatedPhrase"/>        
-       </form>
-      </div>
+      <textarea type="text" placeholder="Translated phrase..." value={valueState.translatedPhrase} required name="translatedPhrase"/>        
     );
 };
 
