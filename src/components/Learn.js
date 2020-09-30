@@ -52,7 +52,7 @@ const Learn = ({ userState, setUserState }) => {
     axios
       .post("https://translation-app-mcrcodes.herokuapp.com/addFlashcard", {
         userID: userState.userID,
-        initialPhrase: Value.initialPhrase.toArray,
+        initialPhrase: Value.initialPhrase,
         translatedPhrase: Value.translatedPhrase,
         translateFrom: userState.translateFrom,
         translateTo: userState.translateTo
