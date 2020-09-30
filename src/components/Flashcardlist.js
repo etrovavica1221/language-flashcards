@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Flashcard from './Flashcard';
 
-let savedFlashcards = []
+let savedFlashcards = [];
 
 const FlashcardList = ({ userState }) => {
     const [flashcard, setFlashcard] = useState(savedFlashcards);

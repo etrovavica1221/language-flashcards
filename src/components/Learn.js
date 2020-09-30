@@ -60,7 +60,7 @@ const Learn = ({ userState, setUserState }) => {
       .then((response) => {
         setAlert({
           message: "Flashcard saved!",
-          isSuccess: false,
+          isSuccess: true,
         })
         console.log(response);
       })
@@ -84,7 +84,7 @@ const Learn = ({ userState, setUserState }) => {
       </form>
       <button id="translation-submit" type="submit" onClick={onSubmitTranslation}>Translate</button>
       <div id="learn-buttons-container">
-        <button className="large-learn-button" type="submit" >Save to my Flashcards</button>
+        <button className="large-learn-button" type="submit" onClick={handleSave}>Save to my Flashcards</button>
         <Link to="/flashcard"><button className="large-learn-button" type="button" >View my Flashcards</button></Link>
       </div>
     </div>
