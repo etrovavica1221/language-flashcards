@@ -60,7 +60,6 @@ const UserRegister = ({ userState, setUserState }) => {
         });
     };
   }
-  console.log('VALUE', Value);
 
   return (
     <div className="UserRegister">

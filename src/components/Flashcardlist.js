@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Flashcard from './Flashcard';
 
@@ -7,11 +7,13 @@ let savedFlashcards = []
 const FlashcardList = ({ userState }) => {
     const [flashcard, setFlashcard] = useState(savedFlashcards);
 
-    axios
-     .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
-     .then(({ data }) => {
-        setFlashcard(data)
-        });
+    useEffect(() => {
+        axios
+         .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
+         .then(({ data }) => {
+            setFlashcard(data)
+        });        
+    })
 
     return (
         <div className="card-grid">

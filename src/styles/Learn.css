@@ -80,6 +80,21 @@
     transition: background-color 0.4s;
 }
 
+#translation-submit {
+    background-color: rgba(222, 233, 238, 0.87);
+    border: 2px solid black;
+    color: black;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-bottom: 2em;
+}
+
+#translation-submit:hover {
+    background-color: rgba(30, 176, 243, 0.87);
+    transition: background-color 0.4s;
+}
+
 @media only screen and (max-width: 500px) {
     .titles {
         font-size: 1.4em;

@@ -51,10 +51,7 @@ const UserLogin = ({ userState, setUserState }) => {
           isSuccess: false,
       })
       });
-      console.log(setUserState)
-
   };
-  console.log('VALUE', Value);
 
   return (
     <div className="UserLogin">

@@ -2,7 +2,7 @@
 /* eslint-disable spaced-comment */
 /* eslint-disable quotes */
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
@@ -37,8 +37,6 @@ const Home = ({ userState, setUserState }) => {
     button = <Link to="/login"><button className="base-button" type="button">Log in</button></Link>;
     logout = "";
   }
-
-  //console.log(userState)
 
   return (
     <div id="HomePage">

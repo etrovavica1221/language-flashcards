@@ -9,10 +9,10 @@ function Navbar() {
     isOpen: true,
   }
 
-  const [isOpen, setHamburger] = useState(navbarState.isHamburger)
+  const [isOpen, setHamburger] = useState(navbarState.isHamburger);
 
   const toggleHamburger = () => {
-    setHamburger(!isOpen)
+    setHamburger(!isOpen);
   }
 
   return (
