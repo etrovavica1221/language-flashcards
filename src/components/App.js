@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -42,5 +43,14 @@ function App() {
   );
 }
 
+App.propTypes = {
+  forename: PropTypes.string,
+  surname: PropTypes.string,
+  translateFrom: PropTypes.string,
+  translateTo: PropTypes.string,
+  email: PropTypes.string,
+  loggedIn: PropTypes.bool,
+  userID: PropTypes.string,
+};
 
 export default App;

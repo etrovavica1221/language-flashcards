@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Alert from './Alert';
 import Translator from './Translator';
@@ -90,6 +91,11 @@ const Learn = ({ userState, setUserState }) => {
       </div>
     </div>
   )
+};
+
+Learn.propTypes = {
+  initialPhrase: PropTypes.string,
+  translatedPhrase: PropTypes.string,
 };
 
 export default Learn;

@@ -3,6 +3,7 @@
 /* eslint-disable quotes */
 /* eslint-disable no-console */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
@@ -56,6 +57,16 @@ const Home = ({ userState, setUserState }) => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  forename: PropTypes.string,
+  surname: PropTypes.string,
+  translateFrom: PropTypes.string,
+  translateTo: PropTypes.string,
+  email: PropTypes.string,
+  loggedIn: PropTypes.bool,
+  userID: PropTypes.string,
 };
 
 export default Home;
