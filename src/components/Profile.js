@@ -165,14 +165,14 @@ class Profile extends React.Component {
               <option value="">Translate From</option>
               <option value="EN">English</option>
               <option value="RU">Russian</option>
-              <option value="CH">Chinese</option>
+              <option value="zh-CN">Chinese</option>
             </select>
             <label htmlFor='translateTo'>Translate To:</label>
             <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateTo} name="translateTo">
               <option value="">Translate To</option>
               <option value="EN">English</option>
               <option value="RU">Russian</option>
-              <option value="CH">Chinese</option>
+              <option value="zh-CN">Chinese</option>
             </select>
             <input type="button" className="base-button" onClick={this.handleSave} value="OK" />
             <button
