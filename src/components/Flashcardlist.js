@@ -5,19 +5,24 @@ import Flashcard from './Flashcard';
 let savedFlashcards = [];
 
 const FlashcardList = ({ userState }) => {
-    const [flashcard, setFlashcard] = useState(savedFlashcards);
+    const [flashcards, setFlashcards] = useState(savedFlashcards);
 
     useEffect(() => {
+        let isMounted = true
         axios
          .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
          .then(({ data }) => {
-            setFlashcard(data)
-        });        
+            if(isMounted){
+                setFlashcards(data)
+            }
+         })
+         .catch(console.log);
+         return () => { isMounted = false };
     })
 
     return (
         <div className="card-grid">
-            {flashcard.map(flashcard => {
+            {flashcards.map(flashcard => {
                 return <Flashcard flashcard={flashcard} key={flashcard._id} />
             })}
         </div>

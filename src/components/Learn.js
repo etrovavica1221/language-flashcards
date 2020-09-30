@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Alert from './Alert';
 import Translator from './Translator';
@@ -16,13 +16,9 @@ const translateState = {
 
 const alertState = {
   alert: {
-  message: "",
-  isSuccess: false,
-},
-}
-
-const submitState = {
-  isSubmmited: false,
+    message: "",
+    isSuccess: false,
+  },
 }
 
 const Learn = ({ userState, setUserState }) => {
