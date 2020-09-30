@@ -80,7 +80,7 @@ const Learn = ({ userState, setUserState }) => {
       <h1 className="titles">Translate your text and make your own flashcards</h1>
       <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
       <form id="translation-form" action="submit" onSubmit={handleSave}>
-        <textarea type="text" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
+        <textarea type="text" maxLength="30" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
         <Translator userState={userState} valueState={Value} setValueState={setValue}/>
       </form>
       <button id="translation-submit" type="submit" onClick={onSubmitTranslation}>Translate</button>
