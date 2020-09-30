@@ -75,13 +75,13 @@ const UserRegister = ({ userState, setUserState }) => {
           <option value="">Translate From</option>
           <option value="EN">English</option>
           <option value="RU">Russian</option>
-          <option value="CH">Chinese</option>
+          <option value="zh-CN">Chinese</option>
         </select>
         <select defaultValue="Translate To" name="translateTo" onChange={handleChange}>
           <option value="">Translate To</option>
           <option value="EN">English</option>
           <option value="RU">Russian</option>
-          <option value="CH">Chinese</option>
+          <option value="zh-CN">Chinese</option>
         </select>
         <button className="base-button" type="submit">Register</button>
         <Link className="hyperlink" to="/login">Already a member? log in here.</Link>

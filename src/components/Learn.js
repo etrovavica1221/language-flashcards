@@ -35,7 +35,12 @@ const Learn = ({ userState, setUserState }) => {
     setValue({
       ...Value,
       [e.target.name]: e.target.value,
+      translatedPhrase: '',
     });
+    setAlert({
+      message: "",
+      isSuccess: false,
+    })
   };
 
   const onSubmitTranslation = (e) => {
