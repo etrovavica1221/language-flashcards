@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Alert from './Alert';
 import Translator from './Translator';
@@ -52,7 +52,7 @@ const Learn = ({ userState, setUserState }) => {
     axios
       .post("https://translation-app-mcrcodes.herokuapp.com/addFlashcard", {
         userID: userState.userID,
-        initialPhrase: Value.initialPhrase,
+        initialPhrase: Value.initialPhrase.toArray,
         translatedPhrase: Value.translatedPhrase,
         translateFrom: userState.translateFrom,
         translateTo: userState.translateTo
@@ -71,9 +71,9 @@ const Learn = ({ userState, setUserState }) => {
           isSuccess: false,
         })
       });
-    console.log(Value)
   };
-  console.log(Value)
+  console.log(Value);
+
   return( 
     <div id="translation-form-container">
       <h1 className="titles">Translate your text and make your own flashcards</h1>

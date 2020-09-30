@@ -14,16 +14,16 @@ const Flashcard = ({ flashcard }) => {
        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
          <div className="card-container" onClick={handleClick}>
            <div className="card-text-original">
-             {flashcard.initialPhrase}
+             {flashcard.initialPhrase.toUpperCase()}
            </div>
          </div>
 
          <div className="card-container" onClick={handleClick}>
            <div className="card-text-original">
-             {flashcard.initialPhrase}
+             {flashcard.initialPhrase.toUpperCase()}
            </div>
            <div className="card-text-translation">
-             {flashcard.translatedPhrase}
+             {flashcard.translatedPhrase.toUpperCase()}
           </div>
          </div>
        </ReactCardFlip>
