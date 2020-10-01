@@ -69,6 +69,7 @@
     height: 4em;
     border: 2px solid black;
     color: black;
+    font-size: 1.3em;
     border-radius: 5px;
     font-weight: bolder;
     background-color: white;
@@ -86,6 +87,7 @@
     color: black;
     border-radius: 5px;
     font-weight: bolder;
+    font-size: 1.3em;
     cursor: pointer;
     margin-bottom: 2em;
 }
