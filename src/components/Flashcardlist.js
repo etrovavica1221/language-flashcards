@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Flashcard from './Flashcard';
 import '../styles/Flashcardlist.css';
 
@@ -35,7 +37,7 @@ const FlashcardList = ({ userState }) => {
             <div className="card-grid">
                 {!loading && <Flashcard flashcard={randomFlashcard} />}
             </div>
-            <button id="next-card-submit" onClick={getNewCard} type="submit">Next</button>
+            <button id="next-card-submit" onClick={getNewCard} type="submit"><FontAwesomeIcon icon={ faArrowCircleRight } /></button>
         </div>
     )
  };
