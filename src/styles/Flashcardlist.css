@@ -23,3 +23,9 @@
     color: rgb(253, 202, 106);
     transition: color 0.4s;
 }
+
+@media only screen and (max-width: 400px) {
+    #next-card-submit {
+        font-size: 4em;
+    }
+}

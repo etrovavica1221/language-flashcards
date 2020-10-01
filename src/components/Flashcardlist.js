@@ -17,7 +17,7 @@ const FlashcardList = ({ userState }) => {
     }
 
     useEffect(() => {
-        let isMounted = true
+        let isMounted = true;
         axios
          .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
          .then(({ data }) => {
@@ -27,7 +27,7 @@ const FlashcardList = ({ userState }) => {
                 setRandomFlashcard(data[Math.floor(Math.random()*data.length)]);
                 setLoading(false);
             }
-         },[userState])
+         },[])
          .catch(console.log);
          return () => { isMounted = false };
     },[]);
