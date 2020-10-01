@@ -3,7 +3,6 @@ import axios from "axios";
 import Alert from './Alert';
 import AvatarEditor from 'react-avatar-editor';
 import '../styles/Profile.css';
-import examplePic from '../styles/cat-reading-newspaper-445x299.jpg';
 
 class Profile extends React.Component {
   alertState = {
@@ -15,13 +14,12 @@ class Profile extends React.Component {
     //profile
     forename: this.props.userState.forename,
     surname: this.props.userState.surname,
-    translateFrom:this.props.userState.translateFrom,
     translateTo: this.props.userState.translateTo,
     email: this.props.userState.email,
     newPassword: "",
     confirmNewPassword: "",
     //avatar
-    image: examplePic,
+    image: this.props.userState.image,
     allowZoomOut: false,
     position: { x: 0.5, y: 0.5 },
     scale: 1,
@@ -37,7 +35,39 @@ class Profile extends React.Component {
   }
   
   handleNewImage = e => {
-    this.setState({image: e.target.files[0]})
+    let file = e.target.files[0];
+    // Split the filename to get the name and type
+    let fileParts = e.target.files[0].name.split('.');
+    let fileName = fileParts[0];
+    let fileType = fileParts[1];
+    axios.post("https://translation-app-mcrcodes.herokuapp.com/sign_s3",{
+      fileName : fileName + Date.now() + '.' + fileType,
+      fileType : fileType
+    })
+    .then(response => {
+      const returnData = response.data.data.returnData;
+      const signedRequest = returnData.signedRequest;
+      const url = returnData.url;
+      this.setState({url: url})
+      console.log("Recieved a signed request " + signedRequest);
+      
+     // Put the fileType in the headers for the upload
+      var options = {
+        headers: {
+          'Content-Type': fileType
+        }
+      };
+      axios.put(signedRequest,file,options)
+      .then(result => {
+        console.log("Response from s3")
+        this.setState({image: url})
+        this.props.userState.image = this.state.image
+      })
+      .catch(error => {
+        alert("ERROR " + JSON.stringify(error));
+      })
+    })
+    
   }
    
   handleChange = e => {
@@ -45,16 +75,14 @@ class Profile extends React.Component {
   }
 
   handleSave = (e) => {
-    //const img = this.editor.getImageScaledToCanvas().toDataURL()
-    //const rect = this.editor.getCroppingRect()
     e.preventDefault();
     if (this.state.newPassword === this.state.confirmNewPassword) {
       axios
         .patch(`https://translation-app-mcrcodes.herokuapp.com/updateUser?id="${this.props.userState.userID}"`, {
           "forename":this.state.forename,
           "surname":this.state.surname,
-          "translateFrom":this.state.translateFrom,
           "translateTo":this.state.translateTo,
+          "image":this.state.image,
         })
         .then((response) => {
           if (this.state.newPassword) {
@@ -72,13 +100,13 @@ class Profile extends React.Component {
           console.log(JSON.stringify(response.data));
           this.props.userState.forename = this.state.forename
           this.props.userState.surname = this.state.surname
-          this.props.userState.translateFrom = this.state.translateFrom
           this.props.userState.translateTo = this.state.translateTo
           this.setState({edit: false});
         })
         .catch((err) => {
           console.log(err);
         });
+        
     } else {
       console.log('passwords')
       this.alertState.message = "Passwords do not match"
@@ -129,10 +157,6 @@ class Profile extends React.Component {
             <h1 className='profile-details' name="email">
               {this.state.email}
             </h1>
-            <label className='profile-labels' htmlFor='translateFrom'>Translate From:</label>
-            <h1 className='profile-details' name="translateFrom">
-              {this.state.translateFrom}
-            </h1>
             <label className='profile-labels' htmlFor='translateTo'>Translate To:</label>
             <h1 className='profile-details' name="translateTo">
               {this.state.translateTo}
@@ -160,19 +184,15 @@ class Profile extends React.Component {
             <input className='profile-input' type="password" onChange={this.handleChange} placeholder="Password" required name="newPassword" />
             <label htmlFor='confirmPassword'>Confirm New Password:</label>
             <input className='profile-input' type="password" onChange={this.handleChange} placeholder="Confirm Password" required name="confirmNewPassword" />
-            <label htmlFor='translateFrom'>Translate From:</label>
-            <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateFrom} name="translateFrom">
-              <option value="">Translate From</option>
-              <option value="EN">English</option>
-              <option value="RU">Russian</option>
-              <option value="zh-CN">Chinese</option>
-            </select>
             <label htmlFor='translateTo'>Translate To:</label>
             <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateTo} name="translateTo">
               <option value="">Translate To</option>
               <option value="EN">English</option>
               <option value="RU">Russian</option>
               <option value="zh-CN">Chinese</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
             </select>
             <input type="button" className="base-button" onClick={this.handleSave} value="OK" />
             <button

@@ -21,7 +21,6 @@ const Home = ({ userState, setUserState, }) => {
     setUserState({
       forename: "",
       surname: "",
-      translateFrom: "",
       translateTo: "",
       email: "",
       loggedIn: false,
@@ -62,7 +61,6 @@ const Home = ({ userState, setUserState, }) => {
 Home.propTypes = {
   forename: PropTypes.string,
   surname: PropTypes.string,
-  translateFrom: PropTypes.string,
   translateTo: PropTypes.string,
   email: PropTypes.string,
   loggedIn: PropTypes.bool,

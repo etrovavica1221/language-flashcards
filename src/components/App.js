@@ -14,15 +14,14 @@ const initialState = {
   user: {
     forename: "",
     surname: "",
-    translateFrom: "",
     translateTo: "",
     email: "",
     loggedIn: false,
     userID: "",
+    image: "",
   }, 
 
 };
-
 
 function App() {
   const [user, setUser] = useState(initialState.user);  
