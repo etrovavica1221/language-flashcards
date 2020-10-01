@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Navbar.css';
 
-function Navbar() {
+function Navbar({userState}) {
   const navbarState ={
     isOpen: true,
   }
@@ -44,12 +44,14 @@ function Navbar() {
       ) : (
         null
       )}
-      <div id="bars-container"> 
-        <button id="bars-icon" onClick={ toggleHamburger }>           
-            <FontAwesomeIcon icon={ faBars } />
-        </button>
-      </div>
-    </div>   
+      {userState.loggedIn && 
+        <div id="bars-container"> 
+          <button id="bars-icon" onClick={ toggleHamburger }>           
+              <FontAwesomeIcon icon={ faBars } />
+          </button>
+        </div>
+      } 
+    </div>  
   );
 }
 

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Home.css';
 
-const Home = ({ userState, setUserState }) => {
+const Home = ({ userState, setUserState, }) => {
   const isLoggedIn = userState.loggedIn;
 
   //create variables

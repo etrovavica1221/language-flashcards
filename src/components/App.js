@@ -26,10 +26,11 @@ const initialState = {
 
 function App() {
   const [user, setUser] = useState(initialState.user);  
+
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
+        <Navbar userState={user}/>
         <Switch>
           <Route exact path="/profile" render={() => user.loggedIn ? <Profile userState={user} /> : <Redirect to="/" />} />
           <Route exact path="/learn" render={() => user.loggedIn ? <Learn userState={user} setUserState={setUser} /> : <Redirect to="/" />} />
