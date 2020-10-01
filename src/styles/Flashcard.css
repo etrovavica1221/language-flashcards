@@ -1,11 +1,11 @@
   .card-container {
-    margin: 5em auto;
+    margin: 2em auto;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: white;
     color: rgb(211, 141, 12);
-    height: 70vh;
+    height: 53vh;
     width: 40%;
     border-radius: 40px;
     box-shadow: 6px 6px 10px rgb(18, 30, 32);
