@@ -36,11 +36,11 @@ const UserLogin = ({ userState, setUserState }) => {
         setUserState({
           forename: response.data.forename,
           surname: response.data.surname,
-          translateFrom: response.data.translateFrom,
           translateTo: response.data.translateTo,
           email: Value.email,
           loggedIn: true,
           userID: response.data._id,
+          image: response.data.image,
         });
         history.push("/");
       })

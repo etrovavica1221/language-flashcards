@@ -56,7 +56,6 @@ const Learn = ({ userState, setUserState }) => {
         userID: userState.userID,
         initialPhrase: Value.initialPhrase,
         translatedPhrase: Value.translatedPhrase,
-        translateFrom: userState.translateFrom,
         translateTo: userState.translateTo
       })
       .then((response) => {

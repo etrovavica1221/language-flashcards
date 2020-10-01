@@ -38,17 +38,18 @@ const UserRegister = ({ userState, setUserState }) => {
           translateTo: Value.translateTo,
           email: Value.email,
           password: Value.password,
+          image: "https://mcrcodeslingoguru.s3.amazonaws.com/cat-reading-newspaper-445x2991601582253442.jpg",
         })
         .then((response) => {
           console.log(response);
           setUserState({
             forename: Value.forename,
             surname: Value.surname,
-            translateFrom: response.data.translateFrom,
             translateTo: response.data.translateTo,
             email: Value.email,
             loggedIn: true,
             userID: response.data._id,
+            image: "https://mcrcodeslingoguru.s3.amazonaws.com/cat-reading-newspaper-445x2991601582253442.jpg"
           });
           history.push("/");
         })
@@ -71,17 +72,15 @@ const UserRegister = ({ userState, setUserState }) => {
         <input type="text" placeholder="Email Address" required name="email" onChange={handleChange} />
         <input type="password" placeholder="Password" required name="password" onChange={handleChange} />
         <input type="password" placeholder="Confirm Password" required name="confirmPassword" onChange={handleChange} />
-        <select defaultValue="Translate From" name="translateFrom" onChange={handleChange}>
-          <option value="">Translate From</option>
-          <option value="EN">English</option>
-          <option value="RU">Russian</option>
-          <option value="zh-CN">Chinese</option>
-        </select>
         <select defaultValue="Translate To" name="translateTo" onChange={handleChange}>
           <option value="">Translate To</option>
           <option value="EN">English</option>
           <option value="RU">Russian</option>
           <option value="zh-CN">Chinese</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+
         </select>
         <button className="base-button" type="submit">Register</button>
         <Link className="hyperlink" to="/login">Already a member? log in here.</Link>
