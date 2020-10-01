@@ -24,7 +24,7 @@ const Flashcard = ({ flashcard }) => {
            </div>
            <div className="card-text-translation">
              {flashcard.translatedPhrase.toUpperCase()}
-          </div>
+           </div>
          </div>
        </ReactCardFlip>
    );

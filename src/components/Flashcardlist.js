@@ -7,21 +7,50 @@ let savedFlashcards = [];
 const FlashcardList = ({ userState }) => {
     const [flashcard, setFlashcard] = useState(savedFlashcards);
 
-    useEffect(() => {
+    const getCard = useEffect();
+
+      useEffect(() => {
+        axios
+        .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
+        .then(res => res.json())
+        .then(data => {
+          let dataCards = data;
+          let randomNum = Math.floor(Math.random() * dataCards.length);
+          let randomCard = dataCards[randomNum];
+  
+          setFlashcard(randomCard.flashcard);
+        })
+    }, [])
+
+
+    const handleClick = () => {
+      getCard();
+    }
+
+    return (
+      <div>
+        <div className="card-grid">
+            {<Flashcard flashcard={flashcard} />
+            }
+        </div>
+        <div>
+          <button onClick={handleClick} className="button">next</button>
+        </div>
+      </div>
+    )
+ };
+
+  /*useEffect(() => {
         axios
          .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
          .then(({ data }) => {
             setFlashcard(data)
-        });        
-    })
+            
+        });      
+    })*/
 
-    return (
-        <div className="card-grid">
-            {flashcard.map(flashcard => {
-                return <Flashcard flashcard={flashcard} key={flashcard._id} />
-            })}
-        </div>
-    )
- };
+ //{flashcard.map(flashcard => {
+  //return <Flashcard flashcard={random} key={flashcard._id} />
+//})}
 
  export default FlashcardList;
