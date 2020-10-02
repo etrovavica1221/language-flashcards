@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 //import Flashcard from './Flashcard';
 import '../styles/Flashcardlist.css';
-import '../styles/Flashcard.css'
+//import '../styles/Flashcard.css';
 
 let savedFlashcards = [];
 
@@ -16,11 +16,11 @@ const FlashcardList = ({ userState, flashcard }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
    const handleClick = () => {
-     setIsFlipped(!isFlipped);
+      setIsFlipped(!isFlipped);
     }
 
     const getNewCard = () => {
-        setRandomFlashcard(flashcards[Math.floor(Math.random()*flashcards.length)]);
+      setRandomFlashcard(flashcards[Math.floor(Math.random()*flashcards.length)]);
     }
 
     useEffect(() => {
@@ -38,18 +38,6 @@ const FlashcardList = ({ userState, flashcard }) => {
          .catch(console.log);
          return () => { isMounted = false };
     },[]);
-    
-    /*return (
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-          <div id="Flashcardlist">
-            <div className="card-grid">
-                {!loading && <Flashcard flashcard={randomFlashcard} />}
-            </div>
-            <button id="next-card-submit" onClick={getNewCard} type="submit"><FontAwesomeIcon icon={ faArrowCircleRight } /></button>
-          </div>
-        </ReactCardFlip>
-    );
- };*/
   
   return (
       <div id="Flashcardlist">
@@ -76,6 +64,18 @@ const FlashcardList = ({ userState, flashcard }) => {
       </div>
   );
 };
+
+/*return (
+        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+          <div id="Flashcardlist">
+            <div className="card-grid">
+                {!loading && <Flashcard flashcard={randomFlashcard} />}
+            </div>
+            <button id="next-card-submit" onClick={getNewCard} type="submit"><FontAwesomeIcon icon={ faArrowCircleRight } /></button>
+          </div>
+        </ReactCardFlip>
+    );
+ };*/
 
 /*<div className="card-grid">
             {!loading flashcard={randomFlashcard}
