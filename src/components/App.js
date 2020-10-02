@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -25,10 +26,11 @@ const initialState = {
 
 function App() {
   const [user, setUser] = useState(initialState.user);  
+
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
+        <Navbar userState={user}/>
         <Switch>
           <Route exact path="/profile" render={() => user.loggedIn ? <Profile userState={user} /> : <Redirect to="/" />} />
           <Route exact path="/learn" render={() => user.loggedIn ? <Learn userState={user} setUserState={setUser} /> : <Redirect to="/" />} />
@@ -42,5 +44,14 @@ function App() {
   );
 }
 
+App.propTypes = {
+  forename: PropTypes.string,
+  surname: PropTypes.string,
+  translateFrom: PropTypes.string,
+  translateTo: PropTypes.string,
+  email: PropTypes.string,
+  loggedIn: PropTypes.bool,
+  userID: PropTypes.string,
+};
 
 export default App;

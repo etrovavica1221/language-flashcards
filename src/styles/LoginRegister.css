@@ -22,6 +22,7 @@ input, select{
 
 .hyperlink {
     color: rgb(211, 141, 12);
+    margin-top: 2em;
 }
 
 .hyperlink:hover {

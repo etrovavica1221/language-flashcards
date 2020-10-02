@@ -6,10 +6,11 @@ const Flashcard = ({ flashcard }) => {
 
    const [isFlipped, setIsFlipped] = useState(false);
 
-   const handleClick = () => {
+   const handleClick = (e) => {
+     e.preventDefault();
      setIsFlipped(!isFlipped);
    };
-
+   
    return (
        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
          <div className="card-container" onClick={handleClick}>
@@ -17,7 +18,6 @@ const Flashcard = ({ flashcard }) => {
              {flashcard.initialPhrase.toUpperCase()}
            </div>
          </div>
-
          <div className="card-container" onClick={handleClick}>
            <div className="card-text-original">
              {flashcard.initialPhrase.toUpperCase()}

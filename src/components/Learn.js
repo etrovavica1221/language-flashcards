@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Alert from './Alert';
 import Translator from './Translator';
@@ -16,13 +17,9 @@ const translateState = {
 
 const alertState = {
   alert: {
-  message: "",
-  isSuccess: false,
-},
-}
-
-const submitState = {
-  isSubmmited: false,
+    message: "",
+    isSuccess: false,
+  },
 }
 
 const Learn = ({ userState, setUserState }) => {
@@ -84,7 +81,7 @@ const Learn = ({ userState, setUserState }) => {
       <h1 className="titles">Translate your text and make your own flashcards</h1>
       <div className="hyperlink">{alert.message && (<Alert message={alert.message} success={alert.isSuccess} />)}</div>
       <form id="translation-form" action="submit" onSubmit={handleSave}>
-        <textarea type="text" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
+        <textarea type="text" maxLength="30" placeholder="Enter text to translate..." required name="initialPhrase" onChange={handleChange} />
         <Translator userState={userState} valueState={Value} setValueState={setValue}/>
       </form>
       <button id="translation-submit" type="submit" onClick={onSubmitTranslation}>Translate</button>
@@ -94,6 +91,11 @@ const Learn = ({ userState, setUserState }) => {
       </div>
     </div>
   )
+};
+
+Learn.propTypes = {
+  initialPhrase: PropTypes.string,
+  translatedPhrase: PropTypes.string,
 };
 
 export default Learn;

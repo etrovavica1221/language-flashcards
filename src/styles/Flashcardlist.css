@@ -1,0 +1,31 @@
+#Flashcardlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#next-card-submit {
+    border: none;
+    color: orange;
+    font-size: 6em;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin: 0 auto;
+    width: 30%;
+}
+
+#next-card-submit { 
+    outline: none; 
+}
+
+#next-card-submit:hover {
+    color: rgb(253, 202, 106);
+    transition: color 0.4s;
+}
+
+@media only screen and (max-width: 400px) {
+    #next-card-submit {
+        font-size: 4em;
+    }
+}

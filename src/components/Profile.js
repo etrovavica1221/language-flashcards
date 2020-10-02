@@ -160,13 +160,6 @@ class Profile extends React.Component {
             <input className='profile-input' type="password" onChange={this.handleChange} placeholder="Password" required name="newPassword" />
             <label htmlFor='confirmPassword'>Confirm New Password:</label>
             <input className='profile-input' type="password" onChange={this.handleChange} placeholder="Confirm Password" required name="confirmNewPassword" />
-            <label htmlFor='translateFrom'>Translate From:</label>
-            <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateFrom} name="translateFrom">
-              <option value="">Translate From</option>
-              <option value="EN">English</option>
-              <option value="RU">Russian</option>
-              <option value="zh-CN">Chinese</option>
-            </select>
             <label htmlFor='translateTo'>Translate To:</label>
             <select className='profile-input' onChange={this.handleChange} defaultValue={this.state.translateTo} name="translateTo">
               <option value="">Translate To</option>
