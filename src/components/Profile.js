@@ -29,6 +29,10 @@ class Profile extends React.Component {
     height: 120
   }
 
+  handlePositionChange = position => {
+    this.setState({ position })
+  }
+
   handleScale = e => {
     const scale = parseFloat(e.target.value)
     this.setState({scale})
@@ -42,7 +46,9 @@ class Profile extends React.Component {
     let fileType = fileParts[1];
     axios.post("https://translation-app-mcrcodes.herokuapp.com/sign_s3",{
       fileName : fileName + Date.now() + '.' + fileType,
-      fileType : fileType
+      fileType : fileType,
+      position : this.state.position,
+      scale: this.state.scale, 
     })
     .then(response => {
       const returnData = response.data.data.returnData;
@@ -67,7 +73,6 @@ class Profile extends React.Component {
         alert("ERROR " + JSON.stringify(error));
       })
     })
-    
   }
    
   handleChange = e => {
@@ -83,6 +88,7 @@ class Profile extends React.Component {
           "surname":this.state.surname,
           "translateTo":this.state.translateTo,
           "image":this.state.image,
+          "position":this.state.position,
         })
         .then((response) => {
           if (this.state.newPassword) {
@@ -116,7 +122,6 @@ class Profile extends React.Component {
   }
   
   render() {
-
     return (
       <div className="profile-data">
         <div id='profile-wrap'>
@@ -129,6 +134,8 @@ class Profile extends React.Component {
                 color={[0,0,0]} 
                 scale={parseFloat(this.state.scale)}
                 image={this.state.image}
+                position={this.state.position}
+                onPositionChange={this.handlePositionChange}
               />
           <div id='edit-button-pic'>
           </div>

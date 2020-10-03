@@ -22,8 +22,8 @@ const FlashcardList = ({ userState }) => {
          .get(`https://translation-app-mcrcodes.herokuapp.com/myFlashcards?userID=${userState.userID}`)
          .then(({ data }) => {
             if(isMounted){
-                console.log(data)
-                setFlashcards(data)
+                console.log(data);
+                setFlashcards(data);
                 setRandomFlashcard(data[Math.floor(Math.random()*data.length)]);
                 setLoading(false);
             }

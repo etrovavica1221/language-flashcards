@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto; 
+    margin: 3em auto; 
     font-family: 'Balsamiq Sans', cursive; 
 }
 
@@ -13,11 +13,11 @@
     margin: auto;
     border: 5px groove rgb(109, 106, 106);
     border-radius: 15px;
-    padding: 1em;
+    padding: 2em;
     display: flex;
     flex-direction: column;
     margin: 2em 3em; 
-    width: 40%;
+    width: 28%;
     background-color: rgba(222, 233, 238, 0.87);  
 }
 
@@ -38,7 +38,7 @@
 #profile-input-container, #profile-input-container-edit {
     display: flex;
     flex-direction: column;
-    margin: 2em;
+    margin: 2em auto 4em auto;
 }
 
 #profile-input-container {
@@ -89,7 +89,7 @@ label {
 
 @media only screen and (max-width: 450px) {
     #profile-wrap  {
-        margin: 3em 0.5em; 
-        width: 80%;
+        margin: 1em 0.5em; 
+        width: 70%;
     }
 }

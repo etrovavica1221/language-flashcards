@@ -3,13 +3,15 @@ import ReactCardFlip from 'react-card-flip';
 import '../styles/Flashcard.css';
 
 const Flashcard = ({ flashcard }) => {
-
    const [isFlipped, setIsFlipped] = useState(false);
-
+  
    const handleClick = () => {
-     setIsFlipped(!isFlipped);
-   };
-   
+    setIsFlipped(true)
+    setTimeout(() => { 
+      setIsFlipped(false)}, 
+      700)
+  };
+
    return (
        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
          <div className="card-container" onClick={handleClick}>
