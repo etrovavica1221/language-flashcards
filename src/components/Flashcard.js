@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import '../styles/Flashcard.css';
 
-const Flashcard = ({ flashcard }) => {
+const Flashcard = ({ flashcard, setIsCardFlipped}) => {
    const [isFlipped, setIsFlipped] = useState(false);
   
    const handleClick = () => {
     setIsFlipped(true)
+    setIsCardFlipped(true)
     setTimeout(() => { 
       setIsFlipped(false)}, 
-      700)
+      1500)
+      setTimeout(() => { 
+        setIsCardFlipped(false)}, 
+        1500)
   };
 
    return (
