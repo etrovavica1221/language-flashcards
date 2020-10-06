@@ -200,7 +200,6 @@ class Profile extends React.Component {
               <option value="es">Spanish</option>
               <option value="fr">French</option>
               <option value="de">German</option>
-              <option value="pt">Portuguese</option>
             </select>
             <input type="button" className="base-button" onClick={this.handleSave} value="OK" />
             <button

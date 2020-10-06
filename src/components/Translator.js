@@ -4,7 +4,13 @@ import '../styles/Translator.css';
 
 const Translator = ({ valueState }) => {
     return (
-      <textarea type="text" placeholder="Translated phrase..." value={valueState.translatedPhrase} readOnly required name="translatedPhrase"/>        
+      <textarea 
+        type="text" placeholder="Translated phrase..." 
+        value={valueState.translatedPhrase} 
+        readOnly 
+        required 
+        name="translatedPhrase"
+      />        
     );
 };
 

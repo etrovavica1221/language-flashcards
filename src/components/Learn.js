@@ -73,7 +73,6 @@ const Learn = ({ userState, setUserState }) => {
         })
       });
   };
-  console.log(Value);
 
   return( 
     <div id="translation-form-container">
