@@ -80,7 +80,7 @@ const UserRegister = ({ userState, setUserState }) => {
           <option value="es">Spanish</option>
           <option value="fr">French</option>
           <option value="de">German</option>
-
+          <option value="pt">Portuguese</option>
         </select>
         <button className="base-button" type="submit">Register</button>
         <Link className="hyperlink" to="/login">Already a member? log in here.</Link>
