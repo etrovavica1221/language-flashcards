@@ -30,7 +30,7 @@
 @media only screen and (max-width: 1200px) {
   .card-container {
     width: 55%;
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
 }
 
@@ -38,7 +38,7 @@
   .card-container {
     width: 60%;
     height: 50vh;
-    font-size: 1.6em;
+    font-size: 1.3em;
   }
 }
 
@@ -46,7 +46,7 @@
   .card-container {
     width: 70%;
     height: 40vh;
-    font-size: 1.4em;
+    font-size: 1em;
   }
 }
 
@@ -54,6 +54,6 @@
   .card-container {
     width: 80%;
     height: 35vh;
-    font-size: 1em;
+    font-size: 0.7em;
   }
 }
