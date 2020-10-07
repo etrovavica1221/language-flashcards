@@ -1,15 +1,9 @@
 import React from 'react';
 import axios from "axios";
-import Alert from './Alert';
 import AvatarEditor from 'react-avatar-editor';
 import '../styles/Profile.css';
 
 class Profile extends React.Component {
-  alertState = {
-      message: "",
-      isSuccess: false,
-    }
-
   state = {
     //profile
     forename: this.props.userState.forename,
@@ -26,7 +20,8 @@ class Profile extends React.Component {
     rotate: 0,
     borderRadius: 50,
     width: 120,
-    height: 120
+    height: 120,
+    alertMessage: "",
   }
 
   handlePositionChange = position => {
@@ -111,12 +106,18 @@ class Profile extends React.Component {
         })
         .catch((err) => {
           console.log(err);
-        });     
+        });  
     } else {
-      this.alertState.message = "Passwords do not match";
-      this.alertState.isSuccess = false;
+      this.setState({
+        alertMessage: "Passwords do not match!",
+      });
+      setTimeout(() => { 
+      this.setState({
+        alertMessage: "",
+      })}, 
+      3000)
     }
-  }
+  } 
   
   render() {
     return (
@@ -177,7 +178,7 @@ class Profile extends React.Component {
           :(
           <div id='profile-input-container-edit'>
             <h4>*Only update the fields that need to be updated in your profile</h4>
-            {this.alertState.message && (<Alert message={this.alertState.message} success={this.alertState.isSuccess} />)}
+            <div className="Alert">{this.state.alertMessage}</div>
             <label htmlFor='forename'>Name:</label>
             <input className='profile-input' type="text" onChange={this.handleChange} placeholder="First Name" defaultValue={this.state.forename} required name="forename" />
             <label htmlFor='surname'>Surname:</label>
