@@ -111,13 +111,10 @@ class Profile extends React.Component {
         })
         .catch((err) => {
           console.log(err);
-        });
-        
+        });     
     } else {
-      console.log('passwords')
-      this.alertState.message = "Passwords do not match"
-      this.alertState.isSuccess = false
-      console.log(this.alertState)
+      this.alertState.message = "Passwords do not match";
+      this.alertState.isSuccess = false;
     }
   }
   

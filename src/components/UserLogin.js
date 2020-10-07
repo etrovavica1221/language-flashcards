@@ -49,7 +49,7 @@ const UserLogin = ({ userState, setUserState }) => {
         setAlert({
           message: "Unable to log in please check log in details",
           isSuccess: false,
-      })
+        })
       });
   };
 

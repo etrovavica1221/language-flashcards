@@ -1,3 +1,9 @@
-.Alert.alert-success {
-    font-size: 1.6em;
+.Alert {
+    margin: 0.3em auto;
+    font-size: 1.8em;
+    height: 2em;
+    width: 60%;
+    text-align: center;
+    color: rgb(211, 141, 12);
+    font-weight: bolder;
 }
