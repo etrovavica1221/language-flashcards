@@ -16,9 +16,9 @@ https://lingoguru.netlify.app/
 
 <p float="left">
     <div>Desktop view</div>
-    <img src="./src/styles/Home.png" width="412" />
+    <img src="./src/styles/Home.png"/>
     <div>Mobile view</div>
-    <img src="./src/styles/Home-mobile.png" width="160" />
+    <img src="./src/styles/Home-mobile.png"/>
 </p>
 
 ## To start
@@ -26,22 +26,22 @@ https://lingoguru.netlify.app/
 You will be required to make your account to use our app. To set your avatar go to Profile. There you can adjust any details and change a language.
 
 <div>Profile</div>
-<img src="./src/styles/Profile.png" width="412" />
+<img src="./src/styles/Profile.png"/>
 
 ## Learn
 
 In learn you can use the translator to translate your text and save words to your flashcards.
 <div>Learn</div>
-<img src="./src/styles/Learn.png" width="412" />
+<img src="./src/styles/Learn.png"/>
 
 ## Flashcards
 
 To view your flashcards you can click button 'View my Flashcards' on Home page or in Learn under Translator. There you will see your saved flashcard. They will be randomly rendered. Click on a flashcard to see its translation. By clicking the orange arrow you get the next flashcard.
 <p float="left">
     <div>Desktop view</div>
-    <img src="./src/styles/Flashcard.png" width="412" />
+    <img src="./src/styles/Flashcard.png"/>
     <div>Mobile view</div>
-    <img src="./src/styles/Flashcard-mobile.png" width="160" />
+    <img src="./src/styles/Flashcard-mobile.png"/>
 </p>
 
 ## Technologies
