@@ -29,7 +29,6 @@ const UserRegister = ({ userState, setUserState }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Value.password === Value.confirmPassword) {
-      console.log('passwords match');
       axios
         .post("https://translation-app-mcrcodes.herokuapp.com/", {
           forename: Value.forename,
@@ -41,7 +40,6 @@ const UserRegister = ({ userState, setUserState }) => {
           image: "https://mcrcodeslingoguru.s3.amazonaws.com/cat-reading-newspaper-445x2991601582253442.jpg",
         })
         .then((response) => {
-          console.log(response);
           setUserState({
             forename: Value.forename,
             surname: Value.surname,

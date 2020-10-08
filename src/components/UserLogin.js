@@ -32,7 +32,6 @@ const UserLogin = ({ userState, setUserState }) => {
         password: Value.password,
       })
       .then((response) => {
-        console.log(response);
         setUserState({
           forename: response.data.forename,
           surname: response.data.surname,
