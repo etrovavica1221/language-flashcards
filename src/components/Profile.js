@@ -24,15 +24,6 @@ class Profile extends React.Component {
     alertMessage: "",
   }
 
-  handlePositionChange = position => {
-    this.setState({ position })
-  }
-
-  handleScale = e => {
-    const scale = parseFloat(e.target.value)
-    this.setState({scale})
-  }
-  
   handleNewImage = e => {
     let file = e.target.files[0];
     // Split the filename to get the name and type
@@ -42,8 +33,6 @@ class Profile extends React.Component {
     axios.post("https://translation-app-mcrcodes.herokuapp.com/sign_s3",{
       fileName : fileName + Date.now() + '.' + fileType,
       fileType : fileType,
-      position : this.state.position,
-      scale: this.state.scale, 
     })
     .then(response => {
       const returnData = response.data.data.returnData;
@@ -83,7 +72,6 @@ class Profile extends React.Component {
           "surname":this.state.surname,
           "translateTo":this.state.translateTo,
           "image":this.state.image,
-          "position":this.state.position,
         })
         .then((response) => {
           if (this.state.newPassword) {
@@ -130,18 +118,15 @@ class Profile extends React.Component {
                 height={120}
                 border={1}
                 color={[0,0,0]} 
-                scale={parseFloat(this.state.scale)}
                 image={this.state.image}
                 position={this.state.position}
-                onPositionChange={this.handlePositionChange}
+                scale={this.state.scale}
               />
           <div id='edit-button-pic'>
           </div>
             {this.state.edit ? (
               <div id='avatar-settings'>
-                <input name="newImage" type="file" onChange={this.handleNewImage} />
-                <br />
-                <input type="range" onChange={this.handleScale} min='1.2' max="2" step="0.05"/>
+                <input name="newImage" type="file" onChange={this.handleNewImage}/>
               </div>
             ):(
               null
