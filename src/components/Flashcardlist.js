@@ -30,7 +30,7 @@ const FlashcardList = ({ userState }) => {
          },[])
          .catch(console.log);
          return () => { isMounted = false };
-    },[]);
+    },[userState.userID]);
     
     return (
         <div id="Flashcardlist">
