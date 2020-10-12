@@ -162,7 +162,7 @@ class Profile extends React.Component {
           </div>)
           :(
           <div id='profile-input-container-edit'>
-            <h4>*Only update the fields that need to be updated in your profile</h4>
+            <p>*Only update the fields that need to be updated in your profile</p>
             <div className="Alert">{this.state.alertMessage}</div>
             <label htmlFor='forename'>Name:</label>
             <input className='profile-input' type="text" onChange={this.handleChange} placeholder="First Name" defaultValue={this.state.forename} required name="forename" />

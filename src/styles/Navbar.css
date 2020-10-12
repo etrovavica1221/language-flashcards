@@ -78,17 +78,23 @@
 
 @media only screen and (max-width: 1200px) {
     #navbar-links {
-        margin: 1em 6em auto 1em;
+        margin: 1em 9em auto 1em;
     }
 }
 
 @media only screen and (max-width: 1000px) {
     #navbar-links {
-        margin: 1em 3em auto 1em;
+        margin: 1em 7.5em auto 1em;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
+    #navbar-links {
+        margin: 1em 6.5em auto 1em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
     .navbar {
         display: block;
         text-align: center;

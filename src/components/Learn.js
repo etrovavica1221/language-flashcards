@@ -94,7 +94,7 @@ const Learn = ({ userState, setUserState }) => {
       });
     } else {
       setAlert({
-        message: "The flashcard can't be longer than 30 characters long",
+        message: "The flashcard can't be longer than 30 characters long!",
         isSuccess: false,
       })
       setTimeout(() => { 
@@ -110,6 +110,7 @@ const Learn = ({ userState, setUserState }) => {
     <div id="translation-form-container">
       <h1 className="titles">Translate your text and make your own flashcards</h1>
       <div className="Alert">{alert.message}</div>
+      <p className="note">*Highlight the desired word or phrase with your cursor to translate and add to flashcards separately</p>
       <form id="translation-form" action="submit" onSubmit={handleSave}>
         <textarea type="text" placeholder="Enter text to translate..." required name="initialPhrase" onMouseUpCapture={selectedText} onChange={handleChange}/>
         <Translator userState={userState} valueState={Value} setValueState={setValue}/>

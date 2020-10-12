@@ -1,9 +1,9 @@
 .Alert {
-    margin: 0.3em auto;
+    margin: 0.2em auto 0 auto;
     font-size: 1.8em;
-    height: 2em;
+    height: 1.6em;
     width: 60%;
     text-align: center;
-    color: rgb(211, 141, 12);
+    color: rgb(211, 19, 12);
     font-weight: bolder;
 }
