@@ -7,7 +7,7 @@
     font-family: 'Ranchers', cursive;
     color: rgb(211, 141, 12);
     text-shadow: 2px 2px #000000;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 .titles {
@@ -108,6 +108,7 @@ footer {
 
     #landing {
         margin: 0;
+        height: 92vh;
     }
 }
 

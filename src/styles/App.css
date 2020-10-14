@@ -16,6 +16,7 @@ html,body {
     padding: 0;
     background-image: url('./main-background.png');
     max-width: 100%;
+    min-width: 100%;
     font-family: 'Balsamiq Sans', cursive; 
 }
 
@@ -26,7 +27,7 @@ html,body {
     border: 2px solid black;
     color: black;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bolder;
     background-color: white;
     cursor: pointer;

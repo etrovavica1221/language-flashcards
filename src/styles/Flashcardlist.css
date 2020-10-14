@@ -7,7 +7,7 @@
 #next-card-submit {
     border: none;
     color: orange;
-    font-size: 6em;
+    font-size: 5em;
     border-radius: 5px;
     font-weight: bolder;
     cursor: pointer;
@@ -24,8 +24,14 @@
     transition: color 0.4s;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 1200px) {
     #next-card-submit {
         font-size: 4em;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    #next-card-submit {
+        font-size: 3em;
+    }
+  }

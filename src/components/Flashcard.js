@@ -4,7 +4,6 @@ import ReactCardFlip from 'react-card-flip';
 import '../styles/Flashcard.css';
 
 const Flashcard = ({ flashcard, setIsCardFlipped, userState}) => {
-  console.log(flashcard);
    const [isFlipped, setIsFlipped] = useState(false);
   
    const handleClick = () => {

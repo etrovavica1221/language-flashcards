@@ -27,33 +27,63 @@
     margin: auto 1em;
   }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1600px) {
   .card-container {
-    width: 55%;
+    width: 34%;
+    height: 50vh;
     font-size: 1.5em;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1200px) {
+  .card-container {
+    width: 30%;
+    height: 50vh;
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .card-container {
+    width: 40%;
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .card-container {
+    width: 48%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .card-container {
     width: 60%;
-    height: 50vh;
-    font-size: 1.3em;
+    height: 47vh;
+    font-size: 1em;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .card-container {
     width: 70%;
-    height: 40vh;
+    height: 45vh;
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card-container {
+    width: 80%;
+    height: 45vh;
     font-size: 1em;
   }
 }
 
 @media only screen and (max-width: 300px) {
   .card-container {
-    width: 80%;
-    height: 35vh;
+    width: 85%;
+    height: 39vh;
     font-size: 0.7em;
   }
 }

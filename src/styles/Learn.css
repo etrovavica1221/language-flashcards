@@ -94,7 +94,7 @@
     font-size: 1.3em;
     cursor: pointer;
     margin-bottom: 2em;
-    width: 60%;
+    width: 40%;
 }
 
 #translation-submit:hover {
@@ -110,10 +110,54 @@
     text-align: center;
 }
 
+@media only screen and (max-width: 2300px) {
+    #translation-submit {
+        width: 45%;
+    }   
+}
+
+@media only screen and (max-width: 1750px) {
+    #translation-submit {
+        width: 50%;
+    }   
+}
+
+@media only screen and (max-width: 1600px) {
+    #translation-submit {
+        width: 55%;
+    }   
+}
+
+@media only screen and (max-width: 1250px) {
+    #translation-submit {
+        width: 60%;
+    }   
+}
+
+@media only screen and (max-width: 1000px) {
+    #translation-submit {
+        width: 65%;
+    }   
+}
+
 @media only screen and (max-width: 800px) {
     #translation-form {
         margin: 1em auto;
     }
+
+    .large-learn-button {
+        font-size: 1.1em;
+    }
+
+    #translation-submit {
+        width: 70%;
+    }  
+}
+
+@media only screen and (max-width: 650px) {
+    #translation-submit {
+        width: 75%;
+    }  
 }
 
 @media only screen and (max-width: 500px) {
@@ -137,6 +181,10 @@
     #learn-buttons-container {
         gap: 4em;
     }
+
+    #translation-submit {
+        width: 60%;
+    }  
 }
 
 @media only screen and (max-width: 400px) {
