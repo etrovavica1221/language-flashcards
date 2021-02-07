@@ -17,7 +17,8 @@ const Flashcard = ({ flashcard, setIsCardFlipped }) => {
       },1500)
   };
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.stopPropagation();
     axios
     .delete(`https://translation-app-mcrcodes.herokuapp.com/deleteFlashcard?id=${flashcard._id}`)
     .then(() => {
@@ -27,22 +28,22 @@ const Flashcard = ({ flashcard, setIsCardFlipped }) => {
   }
 
    return (
-       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-         <div className="card-container" onClick={handleClick}>
-           <button id="delete-btn" onClick={handleDelete}>delete</button>
-           <div className="card-text-original">
-             {flashcard.initialPhrase.toUpperCase()}
-           </div>
-         </div>
-         <div className="card-container" onClick={handleClick}>
-           <div className="card-text-original">
-             {flashcard.initialPhrase.toUpperCase()}
-           </div>
-           <div className="card-text-translation">
-             {flashcard.translatedPhrase.toUpperCase()}
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+        <div className="card-container" onClick={handleClick}>
+        <button id="flashcard-delete-btn" onClick={handleDelete}>{window.screen.width < 600 ? 'x' : 'X'}</button>
+          <div className="card-text-original">
+            {flashcard.initialPhrase.toUpperCase()}
           </div>
-         </div>
-       </ReactCardFlip>
+        </div>
+        <div className="card-container" onClick={handleClick}>
+          <div className="card-text-original">
+            {flashcard.initialPhrase.toUpperCase()}
+          </div>
+          <div className="card-text-translation">
+            {flashcard.translatedPhrase.toUpperCase()}
+          </div>
+        </div>
+      </ReactCardFlip>
    );
  };
 

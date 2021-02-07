@@ -27,6 +27,41 @@
     margin: auto 1em;
   }
 
+  #flashcard-delete-btn {
+    margin: 0;
+    position: relative;
+    left: 80%;
+    top: 5%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    color: black;
+    outline: none;
+    border: none;
+    width: 3%;
+    border-radius: 6px;
+    background-color: rgba(238, 32, 32, 0.712);
+  }
+
+  #flashcard-delete-btn:hover {
+    background-color: rgba(223, 32, 32, 0.612);
+  }
+
+@media only screen and (min-width: 1800px) {
+  #flashcard-delete-btn {
+    width: 7%;
+    height: 7%;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+  #flashcard-delete-btn {
+    width: 6%;
+    height: 6%;
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .card-container {
     width: 34%;
@@ -40,6 +75,11 @@
     width: 30%;
     height: 50vh;
     font-size: 1.5em;
+  }
+
+  #flashcard-delete-btn {
+    width: 5%;
+    height: 4%;
   }
 }
 

@@ -21,7 +21,7 @@ const alertState = {
   },
 }
 
-const Learn = ({ userState, setUserState }) => {
+const Learn = ({ userState }) => {
   const [Value, setValue] = useState(translateState);
   const [alert, setAlert] = useState(alertState.alert);
   //update the translation automatically
