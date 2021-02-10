@@ -12,9 +12,11 @@ const FlashcardList = ({ userState }) => {
     const [randomFlashcard, setRandomFlashcard] = useState()
     const [loading, setLoading] = useState(true);
     const [isCardFlipped, setIsCardFlipped] = useState(false);
-
+    const [isDeleted, setIsDeleted] = useState(false);
+    
     const getNewCard = () => {
-        setRandomFlashcard(flashcards[Math.floor(Math.random()*flashcards.length)]);        
+        setRandomFlashcard(flashcards[Math.floor(Math.random()*flashcards.length)]);
+        setIsDeleted(false);       
     }
 
     useEffect(() => {
@@ -35,7 +37,7 @@ const FlashcardList = ({ userState }) => {
     return (
         <div id="Flashcardlist">
             <div className="card-grid">
-                {!loading && <Flashcard flashcard={randomFlashcard} setIsCardFlipped={setIsCardFlipped}/>}
+                {!loading && <Flashcard isDeleted={isDeleted} setIsDeleted={setIsDeleted} flashcard={randomFlashcard} setIsCardFlipped={setIsCardFlipped}/>}
             </div>
             {isCardFlipped ? null : <button id="next-card-submit" onClick={getNewCard} type="submit"><FontAwesomeIcon icon={ faArrowCircleRight } /></button>}
         </div>

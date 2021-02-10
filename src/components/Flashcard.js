@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactCardFlip from 'react-card-flip';
 import '../styles/Flashcard.css';
 
-const Flashcard = ({ flashcard, setIsCardFlipped }) => {
+const Flashcard = ({ flashcard, setIsCardFlipped, isDeleted, setIsDeleted }) => {
    const [isFlipped, setIsFlipped] = useState(false);
   
    const handleClick = () => {
@@ -23,9 +23,14 @@ const Flashcard = ({ flashcard, setIsCardFlipped }) => {
     .delete(`https://translation-app-mcrcodes.herokuapp.com/deleteFlashcard?id=${flashcard._id}`)
     .then(() => {
       console.log('Deleted!');
-    },[])
-    .catch(console.log);
+      setIsDeleted(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
+
+  let deleted = " was deleted!";
 
    return (
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
@@ -33,14 +38,17 @@ const Flashcard = ({ flashcard, setIsCardFlipped }) => {
         <button id="flashcard-delete-btn" onClick={handleDelete}>{window.screen.width < 600 ? 'x' : 'X'}</button>
           <div className="card-text-original">
             {flashcard.initialPhrase.toUpperCase()}
+            {isDeleted && deleted}
           </div>
         </div>
         <div className="card-container" onClick={handleClick}>
           <div className="card-text-original">
             {flashcard.initialPhrase.toUpperCase()}
+            {isDeleted && deleted}           
           </div>
           <div className="card-text-translation">
             {flashcard.translatedPhrase.toUpperCase()}
+            {isDeleted && deleted}
           </div>
         </div>
       </ReactCardFlip>
