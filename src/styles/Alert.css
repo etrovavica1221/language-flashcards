@@ -1,21 +1,31 @@
-.Alert {
-    margin: 0.2em auto 0 auto;
-    font-size: 1.6em;
-    height: 1.6em;
+.Alert.alert-success {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    min-width: 30%; 
+	top: 35%;
+    left: 20%;
+    font-size: 2em;
+    height: 3em;
     width: 60%;
     text-align: center;
-    color: rgb(211, 141, 12);
+    color: black;
+    background-color: rgba(222, 233, 238, 0.979);
+    border: 1px solid black;
+    border-radius: 6px;
     font-weight: bolder;
 }
 
 @media only screen and (max-width: 900px) {
-    .Alert {
+    .Alert.alert-success {
         font-size: 1.3em;   
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .Alert {
+    .Alert.alert-success {
         font-size: 0.7em;
     }
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Translator from './Translator';
+import Alert from './Alert';
 import axios from "axios";
 import '../styles/Learn.css'
 import '../styles/Home.css';
@@ -16,8 +17,8 @@ const translateState = {
 
 const alertState = {
   alert: {
-    message: "                     ",
-    isSuccess: false,
+    message: "",
+    isVisible: false,
   },
 }
 
@@ -34,7 +35,7 @@ const Learn = ({ userState }) => {
     });
     setAlert({
       message: "",
-      isSuccess: false,
+      isVisible: false,
     })
   };
 
@@ -66,41 +67,40 @@ const Learn = ({ userState }) => {
         translatedPhrase: Value.translatedPhrase,
         translateTo: userState.translateTo
       })
-      .then((response) => {
+      .then(() => {
         setAlert({
-          message: "Flashcard saved!",
-          isSuccess: true,
+          message: "FLASHCARD IS SAVED!",
+          isVisible: true,
         })
         setTimeout(() => { 
           setAlert({
             message: "",
-            isSuccess: false,
+            isVisible: false,
           })}, 
           2000)
-        console.log(response);
       })
       .catch((err) => {
         console.log(err);
         setAlert({
           message: "Unable to save your flashcard!",
-          isSuccess: false,
+          isVisible: true,
         })
         setTimeout(() => { 
           setAlert({
             message: "",
-            isSuccess: false,
+            isVisible: false,
           })}, 
           2000)
       });
     } else {
       setAlert({
         message: "The flashcard can't be longer than 30 characters long!",
-        isSuccess: false,
+        isVisible: true,
       })
       setTimeout(() => { 
         setAlert({
           message: "",
-          isSuccess: false,
+          isVisible: false,
         })}, 
         3000)
     }
@@ -109,7 +109,6 @@ const Learn = ({ userState }) => {
   return( 
     <div id="translation-form-container">
       <h1 className="titles">Translate your text and make your own flashcards</h1>
-      <div className="Alert">{alert.message}</div>
       <p className="note">*Highlight the desired word or phrase with your cursor to translate and add to flashcards separately</p>
       <form id="translation-form" action="submit" onSubmit={handleSave}>
         <textarea type="text" placeholder="Enter text to translate..." required name="initialPhrase" onMouseUpCapture={selectedText} onChange={handleChange}/>
@@ -120,6 +119,9 @@ const Learn = ({ userState }) => {
         <button className="large-learn-button" type="submit" onClick={handleSave}>Save to my Flashcards</button>
         <Link to="/flashcard"><button className="large-learn-button" type="button" >View my Flashcards</button></Link>
       </div>
+      {alert.message && (
+          <Alert message={alert.message} success={alert.isVisible} />
+      )}
     </div>
   )
 };
@@ -127,6 +129,7 @@ const Learn = ({ userState }) => {
 Learn.propTypes = {
   initialPhrase: PropTypes.string,
   translatedPhrase: PropTypes.string,
+  isVisible: PropTypes.bool,
 };
 
 export default Learn;
