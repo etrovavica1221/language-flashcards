@@ -174,7 +174,7 @@
 
     #translation-form textarea {
         width: 24em;
-        height: 20em;
+        height: 16em;
         margin: 0 auto;
     }
 
@@ -190,6 +190,7 @@
 @media only screen and (max-width: 400px) {
     #translation-form textarea {
         width: 20em;
+        height: 14em;
     }
 
     #learn-buttons-container {
