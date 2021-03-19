@@ -40,13 +40,13 @@
     flex-direction: row;
     justify-content: center;
     width: 90%;
-    margin: 0 0 3em 0;
+    margin: 0 0 2em 0;
 }
 
 #translation-form textarea {
     width: 45em;
     height: 25em;
-    padding: 12px 20px;
+    padding: 12px 34px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -72,11 +72,12 @@
 }
 
 .large-learn-button {
+    margin: 0 auto 2em auto;
     width: 7em;
     height: 4em;
     border: 2px solid black;
     color: black;
-    font-size: 1.3em;
+    font-size: 1.1em;
     border-radius: 5px;
     font-weight: bolder;
     background-color: white;
