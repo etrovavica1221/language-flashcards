@@ -111,7 +111,7 @@ const Learn = ({ userState }) => {
       <h1 className="titles">Translate your text and make your own flashcards</h1>
       <p className="note">*Highlight the desired word or phrase with your cursor to translate and add to flashcards separately</p>
       <form id="translation-form" action="submit" onSubmit={handleSave}>
-       <button id="dlt-text" type="reset">x</button>
+       <button onClick={handleChange} id="dlt-text" type="reset">x</button>
         <textarea type="text" placeholder="Enter text to translate..." required name="initialPhrase" onMouseUpCapture={selectedText} onChange={handleChange}/>
         <Translator userState={userState} valueState={Value} setValueState={setValue}/>
       </form>
