@@ -54,27 +54,66 @@
     padding: 0;
     border: none;
     background: none;
+    width: 60px;
 }
 
-#bars-icon {
-    font-size: 1.6em;
-    color: rgb(211, 141, 12);
+
+#menuToggle {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    border: 0px;
-    width: 100%;
-    padding: 0;
-    border: none;
-    background: none;
 }
 
-#bars-icon:focus { 
-    outline: none; 
+#menuToggle input {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; /* hide input */
+    z-index: 1; /* top of the menu */
+  }
+  
+#menuToggle span {
+    width: 43px;
+    height: 5px;
+    margin-bottom: 10px;
+    background: rgb(211, 141, 12);
+    border-radius: 4px;
+    -webkit-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    -moz-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    -ms-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    -o-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    transition: all .5s cubic-bezier(.08,.81,.87,.71);
 }
 
-#bars-icon:hover {
-    color: rgb(253, 202, 106);
-    transition: color 0.4s;
+#span1 {
+    transform-origin: 4px 0px;
 }
+  
+#span3 {
+    transform-origin: bottom right;
+}
+
+#menuToggle input:checked ~ #span1 {
+    background-color: rgb(211, 141, 12);
+    transform: rotate(45deg) translate(8px);
+}
+
+#menuToggle input:checked ~ #span2 {
+    background-color: rgb(211, 141, 12);
+    transform: rotate(495deg) translate(4px);   
+}
+
+#menuToggle input:checked ~ #span3 {
+    background-color: rgb(211, 141, 12);
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
 
 @media only screen and (max-width: 2300px) {
     .navbar-links-item {
@@ -196,3 +235,4 @@
         margin: 5px auto 0.1em auto;
     }
 }
+

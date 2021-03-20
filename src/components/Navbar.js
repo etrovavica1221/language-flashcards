@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Navbar.css';
 
 function Navbar({userState}) {
@@ -46,9 +44,12 @@ function Navbar({userState}) {
       )}
       {userState.loggedIn && 
         <div id="bars-container"> 
-          <button id="bars-icon" onClick={ toggleHamburger }>           
-              <FontAwesomeIcon icon={ faBars } />
-          </button>
+          <div id="menuToggle" onClick={ toggleHamburger }>
+            <input type="checkbox" />
+            <span id="span1"></span>
+            <span id="span2"></span>
+            <span id="span3"></span>
+          </div>
         </div>
       } 
     </div>  

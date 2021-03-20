@@ -100,6 +100,7 @@
     margin-bottom: 2em;
     width: 40%;
     max-width: 50em;
+    cursor: pointer;
 }
 
 #translation-submit:hover {
@@ -130,6 +131,7 @@
     border-radius: 6px;
     left: 47%;
     top: 17.5%;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 2300px) {
