@@ -18,6 +18,7 @@
     position: relative;
     top: 20%;
     margin: auto 1em;
+    cursor: pointer;
   }
   
   .card-text-translation {
